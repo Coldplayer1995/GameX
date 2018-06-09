@@ -11,9 +11,13 @@ namespace GameX
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+.SetBasePath(env.ContentRootPath)
+.AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -43,7 +47,7 @@ namespace GameX
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=MainPage}/{action=Index}/{id?}");
             });
         }
     }
