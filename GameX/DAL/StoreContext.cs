@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GameX.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,10 @@ namespace GameX.DAL
     {
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
+           
         }
+        public DbSet<Events> Events { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<EventParticipants> EventParticipants { get; set; }
     }
 }

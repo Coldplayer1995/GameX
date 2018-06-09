@@ -15,7 +15,7 @@ namespace GameX.Models
         public string Name { get; set; }
 
         [Required]
-        public DateTime Data { get; set; }
+        public DateTime Date { get; set; }
 
         [Required]
         public string Coords { get; set; }
