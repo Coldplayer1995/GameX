@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace GameX.Models
 {
-    public class Participants
+    public class EventParticipants
     {
-       
+        [Key]
+        public int EventParticipantsID { get; set; }
         public int EventID { get; set; }
 
         public int UserID { get; set; }
