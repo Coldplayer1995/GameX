@@ -13,7 +13,6 @@ namespace GameX.Models
 
         public int UserID { get; set; }
 
-
         public virtual Events Events { get; set; }
 
         public virtual Users Users { get; set; }
