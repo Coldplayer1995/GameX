@@ -1,5 +1,4 @@
-
-﻿$blue: #3498db;
+$blue: #3498db;
 $blue--hover: #2980b9;
 $cloud: #ecf0f1;
 $cloud--hover: #bdc3c7;
@@ -86,7 +85,7 @@ $radius: 3px;
 
 
 
-﻿$hoverColor: #f6ae3a; 
+$hoverColor: #f6ae3a; 
 
 .header{
     background-color: purple;
@@ -109,7 +108,7 @@ $radius: 3px;
         display: flex;
 
         .navigation__menuItemes__item:hover a {
-            color: $hoverColor;
+            color:$hoverColor;
             text-decoration: none;
         }
 
