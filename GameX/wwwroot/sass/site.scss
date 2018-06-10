@@ -1,4 +1,87 @@
-﻿$color: red;
-body {
-    background-color: $color;
+﻿$blue: #3498db;
+$blue--hover: #2980b9;
+$cloud: #ecf0f1;
+$cloud--hover: #bdc3c7;
+$transition: all 146ms ease;
+$shadow: 0 30px 60px -30px rgba(0, 0, 0, .5);
+$radius: 3px;
+
+.addEvent {
+    align-self: center;
+    background-color: #fefefe;
+    border: 1px solid #f2f2f2;
+    border-radius: $radius;
+    min-width: 350px;
+    max-width: 450px;
+    width: 40vw;
+    padding: 2rem;
+
+    .addEvent__block {
+        justify-content: center;
+        display: flex;
+        align-content: space-between;
+        margin-bottom: .6em;
+        align-items: center;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .addEvent__block__name {
+            flex-basis: 30%;
+        }
+
+        .input__block__entry {
+            border-left: 1px solid #ccc;
+            flex-grow: 1;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: .35em .5em;
+            border: 1px solid #aaa;
+            border-radius: $radius;
+            max-width: 25em;
+        }
+
+        .addEvent__block__button {
+            position: center;
+            padding: .35em 1em;
+            box-shadow: $shadow;
+            cursor: pointer;
+            border: 1px solid $blue;
+            background-color: #fff;
+            transition: $transition;
+            font-size: 1.2rem;
+            border-radius: $radius;
+            color: #333;
+
+
+            &:enabled:hover {
+                background-color: $blue;
+                color: #fff;
+                box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .3);
+            }
+
+            &--filled {
+                @extend .addEvent__block__button;
+                background-color: $blue;
+                border-color: $blue;
+                color: #fff;
+
+                &:enabled:hover {
+                    background-color: $blue--hover;
+                    border-color: $blue--hover;
+                }
+            }
+
+            &:disabled {
+                background-color: $cloud;
+                border-color: $cloud--hover;
+                color: #6a6a6a;
+            }
+        }
+    }
 }
+
+
+

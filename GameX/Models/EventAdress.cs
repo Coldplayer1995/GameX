@@ -22,7 +22,7 @@ namespace GameX.Models
         public string PostCode { get; set; }
 
         [Required]
-        public string Address { get; set; }
+        public string Street { get; set; }
 
         [Required]
         public string HouseNumber { get; set; }
