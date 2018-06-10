@@ -28,6 +28,7 @@ namespace GameX.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Add(Events Event)
         {
@@ -41,6 +42,5 @@ namespace GameX.Controllers
             return View();
         }
 
-    
     }
 }

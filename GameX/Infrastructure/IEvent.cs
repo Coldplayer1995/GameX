@@ -12,7 +12,10 @@ namespace GameX.Infrastructure
 
         void Edit();
 
+
         void Delete(int EventID);
+
+
 
 
     }
