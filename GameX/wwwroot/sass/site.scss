@@ -1,13 +1,13 @@
-$blue: #3498db;
+$hoverColor: #f6ae3a;
 $blue--hover: #2980b9;
 $cloud: #ecf0f1;
 $cloud--hover: #bdc3c7;
 $transition: all 146ms ease;
 $shadow: 0 30px 60px -30px rgba(0, 0, 0, .5);
 $radius: 3px;
-$hoverColor: #f6ae3a; 
+$blue: #3498db;
 
-.addEvent {
+﻿ .addEvent {
     align-self: center;
     background-color: #fefefe;
     border: 1px solid #f2f2f2;
@@ -104,13 +104,18 @@ $hoverColor: #f6ae3a;
     .navigation__menuItems {
         display: flex;
 
+
         .navigation__menuItemes__item:hover a {
             color:$hoverColor;
             text-decoration: none;
         }
 
+        .navigation__menuItemes__item:first-child{
+            padding: 0;
+        }
+            
         .navigation__menuItemes__item {
-            padding-left: 20px;
+            padding-left: 40px;
 
             .navigation__menuItemes__item__mainItem {
                 list-style-type: none;
@@ -126,6 +131,8 @@ $hoverColor: #f6ae3a;
                         padding: 0;
                         list-style-type: none;
                         display: none;
+                        background-color: #ffffff;
+
                     }
                 }
             }
