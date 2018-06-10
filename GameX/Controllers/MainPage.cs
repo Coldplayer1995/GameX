@@ -17,7 +17,7 @@ namespace GameX.Controllers
         }
         public IActionResult Index()
         {
-            List<Events> events=_context.Events.ToList();
+            //List<Events> events=_context.Events.ToList();
             return View();
         }
     }
