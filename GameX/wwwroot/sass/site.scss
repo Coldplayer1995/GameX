@@ -84,7 +84,6 @@ $hoverColor: #f6ae3a;
     }
 }
 
-
 .header{
     background-color: purple;
     width: 100%;
@@ -106,7 +105,7 @@ $hoverColor: #f6ae3a;
         display: flex;
 
         .navigation__menuItemes__item:hover a {
-            color: $hoverColor;
+            color:$hoverColor;
             text-decoration: none;
         }
 
