@@ -5,6 +5,7 @@ $cloud--hover: #bdc3c7;
 $transition: all 146ms ease;
 $shadow: 0 30px 60px -30px rgba(0, 0, 0, .5);
 $radius: 3px;
+$hoverColor: #f6ae3a; 
 
 .addEvent {
     align-self: center;
@@ -82,10 +83,6 @@ $radius: 3px;
         }
     }
 }
-
-
-
-$hoverColor: #f6ae3a; 
 
 .header{
     background-color: purple;
