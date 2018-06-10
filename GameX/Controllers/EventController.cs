@@ -18,7 +18,5 @@ namespace GameX.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public 
     }
 }

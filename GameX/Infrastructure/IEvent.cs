@@ -10,8 +10,5 @@ namespace GameX.Infrastructure
         void Add();
 
         void Edit();
-
-
-
     }
 }
