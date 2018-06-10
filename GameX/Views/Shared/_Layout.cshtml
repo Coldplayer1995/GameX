@@ -8,6 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/webfonts/fontawesome.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -17,7 +18,40 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <header class="header">
+        <nav class="navigation">
+            <div class="navigation__logo" ><a asp-area="" asp-controller="MainPage" asp-action="Index" >GameX</a></div>
+            <div class="navigation__menuItems">
+                <div class="navigation__menuItemes__item">
+                    <ul class="navigation__menuItemes__item__mainItem">
+                        <li class="navigation__menuItemes__item__mainItem__subMenuItems">
+                            <a asp-area="" asp-controller="Event" asp-action="Index">Wydarzenia</a>
+                            
+                            <ol class="navigation__menuItemes__item__subMenu">
+                                <li class="navigation__menuItemes__item__subMenu_item">element 1</li>
+                                <li class="navigation__menuItemes__item__subMenu_item">element 2</li>
+
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="navigation__menuItemes__item"><a>O nas</a></div>
+                <div class="navigation__menuItemes__item"><a>Kontakt</a></div>
+            </div>
+                <div class="navigation__menuLogin"><i class="fas fa-user"></i></div>
+            
+
+
+
+        </nav>
+
+
+
+
+    </header>
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +70,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
