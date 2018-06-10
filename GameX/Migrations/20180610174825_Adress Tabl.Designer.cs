@@ -11,40 +11,15 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180610174825_Adress Tabl")]
+    partial class AdressTabl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("GameX.Models.EventAdress", b =>
-                {
-                    b.Property<int>("EventAdressId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired();
-
-                    b.Property<string>("City")
-                        .IsRequired();
-
-                    b.Property<string>("HouseNumber")
-                        .IsRequired();
-
-                    b.Property<double>("Lat");
-
-                    b.Property<double>("Lng");
-
-                    b.Property<string>("PostCode")
-                        .IsRequired();
-
-                    b.HasKey("EventAdressId");
-
-                    b.ToTable("EventAdress");
-                });
 
             modelBuilder.Entity("GameX.Models.EventParticipants", b =>
                 {
@@ -74,16 +49,33 @@ namespace GameX.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("EventAdressId");
-
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<int>("PlaceId");
+
                     b.HasKey("EventId");
 
-                    b.HasIndex("EventAdressId");
+                    b.HasIndex("PlaceId");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("GameX.Models.Places", b =>
+                {
+                    b.Property<int>("PlaceId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adress")
+                        .IsRequired();
+
+                    b.Property<double>("Lat");
+
+                    b.Property<double>("Lng");
+
+                    b.HasKey("PlaceId");
+
+                    b.ToTable("Places");
                 });
 
             modelBuilder.Entity("GameX.Models.Users", b =>
@@ -126,9 +118,10 @@ namespace GameX.Migrations
 
             modelBuilder.Entity("GameX.Models.Events", b =>
                 {
-                    b.HasOne("GameX.Models.EventAdress", "EventAdress")
+                    b.HasOne("GameX.Models.Places", "Place")
                         .WithMany()
-                        .HasForeignKey("EventAdressId");
+                        .HasForeignKey("PlaceId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

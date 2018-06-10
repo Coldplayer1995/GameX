@@ -19,6 +19,9 @@ namespace GameX.Models
 
         [Required]
         public string Coords { get; set; }
+
+        public virtual EventAdress EventAdress { get; set; }
+
         
     }
 }
