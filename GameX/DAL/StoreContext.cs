@@ -16,5 +16,6 @@ namespace GameX.DAL
         public DbSet<Events> Events { get; set; }
         public DbSet<Users> Users { get; set; }
         public DbSet<EventParticipants> EventParticipants { get; set; }
+        public DbSet<EventAdress> EventAdress { get; set; }
     }
 }
