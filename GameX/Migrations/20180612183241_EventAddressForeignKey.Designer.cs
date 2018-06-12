@@ -11,9 +11,10 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180612183241_EventAddressForeignKey")]
+    partial class EventAddressForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +26,10 @@ namespace GameX.Migrations
                     b.Property<int>("EventAdressId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .IsRequired();
+
+                    b.Property<int>("EventId");
 
                     b.Property<string>("HouseNumber")
                         .IsRequired();
@@ -41,6 +45,9 @@ namespace GameX.Migrations
                         .IsRequired();
 
                     b.HasKey("EventAdressId");
+
+                    b.HasIndex("EventId")
+                        .IsUnique();
 
                     b.ToTable("EventAdress");
                 });
@@ -72,14 +79,10 @@ namespace GameX.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int>("EventAdressId");
-
                     b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("EventId");
-
-                    b.HasIndex("EventAdressId");
 
                     b.ToTable("Events");
                 });
@@ -109,6 +112,14 @@ namespace GameX.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("GameX.Models.EventAdress", b =>
+                {
+                    b.HasOne("GameX.Models.Events", "Events")
+                        .WithOne("EventAdress")
+                        .HasForeignKey("GameX.Models.EventAdress", "EventId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("GameX.Models.EventParticipants", b =>
                 {
                     b.HasOne("GameX.Models.Events", "Events")
@@ -119,14 +130,6 @@ namespace GameX.Migrations
                     b.HasOne("GameX.Models.Users", "Users")
                         .WithMany()
                         .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("GameX.Models.Events", b =>
-                {
-                    b.HasOne("GameX.Models.EventAdress", "EventAdress")
-                        .WithMany()
-                        .HasForeignKey("EventAdressId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

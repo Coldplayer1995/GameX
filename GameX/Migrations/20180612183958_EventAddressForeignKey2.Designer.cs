@@ -11,9 +11,10 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180612183958_EventAddressForeignKey2")]
+    partial class EventAddressForeignKey2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +26,8 @@ namespace GameX.Migrations
                     b.Property<int>("EventAdressId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .IsRequired();
 
                     b.Property<string>("HouseNumber")
                         .IsRequired();
@@ -124,7 +126,7 @@ namespace GameX.Migrations
 
             modelBuilder.Entity("GameX.Models.Events", b =>
                 {
-                    b.HasOne("GameX.Models.EventAdress", "EventAdress")
+                    b.HasOne("GameX.Models.EventAdress", "EventAddress")
                         .WithMany()
                         .HasForeignKey("EventAdressId")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -3,22 +3,29 @@
     ViewData["Title"] = "Index";
 }
 <style>
-   
 </style>
+
 <div class="table">
     <div style="order:0;" class="table-cell table-cell--head"><h3>Nazwa</h3></div>
-    <div style="order:1;" class="table-cell">1</div>
-    <div style="order:2;" class="table-cell">2</div>
-
     <div style="order:0;" class="table-cell table-cell--head"><h3>Miasto</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
     <div style="order:0;" class="table-cell table-cell--head"><h3>Adres</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
     <div style="order:0;" class="table-cell table-cell--head"><h3>Data</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
+    @foreach (var Event in Model.Events)
+    {
+       
+
+
+
+            <div  class="table-cell">@Event.Name</div>
+            @*<div style="order:2;" class="table-cell">2</div>*@
+            <div class="table-cell">@Event.EventAdress.City</div>
+            <div  class="table-cell">@Event.EventAdress.Street @Event.EventAdress.HouseNumber</div>
+            <div  class="table-cell">@Event.Date</div>
+        
+    }
+
 </div>
+
+
 
 

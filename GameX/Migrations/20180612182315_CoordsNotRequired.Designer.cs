@@ -11,9 +11,10 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180612182315_CoordsNotRequired")]
+    partial class CoordsNotRequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +26,8 @@ namespace GameX.Migrations
                     b.Property<int>("EventAdressId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .IsRequired();
 
                     b.Property<string>("HouseNumber")
                         .IsRequired();
@@ -72,7 +74,7 @@ namespace GameX.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int>("EventAdressId");
+                    b.Property<int?>("EventAdressId");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -126,8 +128,7 @@ namespace GameX.Migrations
                 {
                     b.HasOne("GameX.Models.EventAdress", "EventAdress")
                         .WithMany()
-                        .HasForeignKey("EventAdressId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EventAdressId");
                 });
 #pragma warning restore 612, 618
         }

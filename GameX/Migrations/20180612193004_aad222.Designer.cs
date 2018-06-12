@@ -11,9 +11,10 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180612193004_aad222")]
+    partial class aad222
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,8 +125,8 @@ namespace GameX.Migrations
 
             modelBuilder.Entity("GameX.Models.Events", b =>
                 {
-                    b.HasOne("GameX.Models.EventAdress", "EventAdress")
-                        .WithMany()
+                    b.HasOne("GameX.Models.EventAdress", "EventAddress")
+                        .WithMany("Events")
                         .HasForeignKey("EventAdressId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

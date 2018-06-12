@@ -10,12 +10,12 @@ namespace GameX.Models
     {
         [Key]
         public int EventAdressId { get; set; }
-
+  
         public double Lat { get; set; }
-
+   
         public double Lng { get; set; }
 
-        [Required]
+        
         public string City { get; set; }
 
         [Required]
@@ -26,6 +26,9 @@ namespace GameX.Models
 
         [Required]
         public string HouseNumber { get; set; }
+     
+
+
 
     }
 }
