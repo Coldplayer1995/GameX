@@ -5,16 +5,15 @@
 }
 
 <h2>Dodaj wydarzenie</h2>
-
-<div class="addEvent">
-    
-    <div class="addEvent__block">
-        <label class="addEvent__block__name" for"">Nazwa</label>
-        <input type="text" name="Name" class="input__block__entry" placeholder="Nowy event">
-    </div>
-    <div class="addEvent__block">
-        <label class="addEvent__block__name" for"">Data</label>
-            <input type="datetime" name="Date" class="input__block__entry" placeholder="19.06.2018">
+<form asp-controller="Event" asp-action="Add" method="post">
+    <div class="addEvent">
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Nazwa</label>
+            <input type="text" name="Name" class="input__block__entry" placeholder="Nowy event">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Data</label>
+            <input type="date" name="Date" class="input__block__entry" placeholder="19.06.2018">
         </div>
         <div class="addEvent__block">
             <label class="addEvent__block__name" for"">Miasto</label>
@@ -32,25 +31,11 @@
             <label class="addEvent__block__name" for"">Kod pocztowy</label>
             <input type="text" name="PostCode" class="input__block__entry" placeholder="16-205">
         </div>
-        
+
         <div class="addEvent__block">
             <button type="submit" class="addEvent__block__button">Dodaj!</button>
-            
+
         </div>
 
     </div>
-<div class="table">
-    <div style="order:0;" class="table-cell table-cell--head"><h3>Nazwa</h3></div>
-    <div style="order:1;" class="table-cell">1</div>
-    <div style="order:2;" class="table-cell">2</div>
-
-    <div style="order:0;" class="table-cell table-cell--head"><h3>Miasto</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
-    <div style="order:0;" class="table-cell table-cell--head"><h3>Adres</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
-    <div style="order:0;" class="table-cell table-cell--head"><h3>Data</h3></div>
-    <div style="order:1;" class="table-cell">Has a sword named Ice</div>
-    <div style="order:2;" class="table-cell">No direwolf</div>
-</div>
+</form>

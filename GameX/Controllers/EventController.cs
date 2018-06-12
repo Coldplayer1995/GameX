@@ -7,6 +7,7 @@ using GameX.Infrastructure;
 using GameX.Models;
 using GameX.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameX.Controllers
 {
@@ -16,12 +17,13 @@ namespace GameX.Controllers
         private IEvent EventManager { get; set; }
         public EventController(StoreContext context)
         {
+            this.EventManager = new EventManager(context);
             this.context = context;
         }
         public IActionResult Index()
         {
             EventViewModel Model = new EventViewModel();
-            Model.Events = context.Events.ToList();
+            Model.Events = context.Events.Include(x=>x.EventAdress).ToList();
             return View(Model);
         }
         public IActionResult Add()
@@ -30,7 +32,7 @@ namespace GameX.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Events Event)
+        public IActionResult Add(EventInputModel Event)
         {
             this.EventManager.Add(Event);
             return View();

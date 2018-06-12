@@ -1,5 +1,6 @@
 ﻿using GameX.DAL;
 using GameX.Models;
+using GameX.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,31 @@ namespace GameX.Infrastructure
         {
             this.context = context;
         }
-        public void Add(Events Event)
+        public void Add(EventInputModel Event)
         {
+            EventAdress eventAdress = new EventAdress
+            {
+                City = Event.City,
+                HouseNumber = Event.HouseNumber,
+                PostCode = Event.PostCode,
+                Street = Event.Street,
+
+            };
+            Events EventRecord = new Events
+            {
+                Date = Event.Date,
+                Coords = null,
+                Name = Event.Name,
+               
+                
+            };
             try
             {
-                context.Add(Event);
+                context.EventAdress.Add(eventAdress);
+                context.SaveChanges();
+                EventRecord.EventAdressId = eventAdress.EventAdressId;
+                context.Events.Add(EventRecord);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -26,7 +47,7 @@ namespace GameX.Infrastructure
                 throw;
             }
 
-            throw new NotImplementedException();
+           
         }
 
         public void Edit()

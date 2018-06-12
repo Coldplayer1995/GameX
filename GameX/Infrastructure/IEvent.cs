@@ -1,4 +1,5 @@
 ﻿using GameX.Models;
+using GameX.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace GameX.Infrastructure
 {
     public interface IEvent
     {
-        void Add(Events Event);
+        void Add(EventInputModel Event);
 
         void Edit();
 
