@@ -1,4 +1,5 @@
 ﻿using GameX.DAL;
+using GameX.HelperClass;
 using GameX.Models;
 using GameX.ViewModel;
 using System;
@@ -11,9 +12,12 @@ namespace GameX.Infrastructure
     public class EventManager : IEvent
     {
         private readonly StoreContext context;
+        public List<CoordAddress> CoordAddresses { get; set; }
         public EventManager(StoreContext context)
         {
             this.context = context;
+            this.CoordAddresses = new List<CoordAddress>();
+
         }
         public void Add(EventInputModel Event)
         {
@@ -30,8 +34,8 @@ namespace GameX.Infrastructure
                 Date = Event.Date,
                 Coords = null,
                 Name = Event.Name,
-               
-                
+
+
             };
             try
             {
@@ -47,7 +51,7 @@ namespace GameX.Infrastructure
                 throw;
             }
 
-           
+
         }
 
         public void Edit()
@@ -67,6 +71,26 @@ namespace GameX.Infrastructure
 
                 throw;
             }
+        }
+
+        public List<CoordAddress> getEventsAddress()
+        {
+
+            List<EventAdress> Addresses = context.EventAdress.ToList();
+            foreach (var adress in Addresses)
+            {
+                CoordAddress co = new CoordAddress()
+                {
+                    City = adress.City,
+                    HouseNumber = adress.HouseNumber,
+                    Street = adress.Street
+                };
+                CoordAddresses.Add(co);
+
+            }
+            return CoordAddresses;
+
+
         }
     }
 }

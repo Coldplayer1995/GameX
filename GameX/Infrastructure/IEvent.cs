@@ -1,4 +1,5 @@
-﻿using GameX.Models;
+﻿using GameX.HelperClass;
+using GameX.Models;
 using GameX.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace GameX.Infrastructure
 
 
         void Delete(int EventID);
+
+        List<CoordAddress> getEventsAddress();
 
 
 

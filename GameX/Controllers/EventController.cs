@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GameX.DAL;
+using GameX.HelperClass;
 using GameX.Infrastructure;
 using GameX.Models;
 using GameX.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace GameX.Controllers
 {
@@ -23,7 +25,7 @@ namespace GameX.Controllers
         public IActionResult Index()
         {
             EventViewModel Model = new EventViewModel();
-            Model.Events = context.Events.Include(x=>x.EventAdress).ToList();
+            Model.Events = context.Events.Include(x => x.EventAdress).ToList();
             return View(Model);
         }
         public IActionResult Add()
@@ -43,6 +45,15 @@ namespace GameX.Controllers
             this.EventManager.Delete(EventID);
             return View();
         }
+        [HttpGet]
+        public JsonResult getEventsAddress()
+        {
+            List<CoordAddress> coordAddresses= this.EventManager.getEventsAddress();
+            var json = JsonConvert.SerializeObject(coordAddresses);
+          
+            return Json(new { json} );
+        }
 
+             
     }
 }
