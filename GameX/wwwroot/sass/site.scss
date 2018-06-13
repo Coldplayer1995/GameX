@@ -9,6 +9,9 @@ $blue: #3498db;
 $gray: #8a8a8a;
 $border_color:#f2f2f2;
 
+body{
+    font-family: 'Open Sans' !important;
+}
 .addEvent {
     align-self: center;
     border: 1px solid $border_color;
@@ -90,10 +93,11 @@ $border_color:#f2f2f2;
     }
 }
 
-.header{
+.header {
     background-image: url("../images/header-background.jpg");
     background-repeat: no-repeat;
-    background-position-y:center;
+    background-position-y: center;
+    background-position-x: center;
     width: 100%;
     height: 600px;
 }
@@ -256,6 +260,38 @@ $border_color:#f2f2f2;
             &:focus {
                 outline: none;
             }
+        }
+    }
+}
+.events {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    .title, events_title {
+        text-align: center;
+        font-weight: 400;
+        padding: 20px;
+    }
+
+    .events__map {
+        height: 350px;
+        background-color: green;
+    }
+
+    .events__button {
+        border: 2px solid $blue;
+        background: none;
+        margin-top: 20px;
+        padding: 10px;
+        width: 150px;
+        align-self: center;
+
+        &:hover {
+            background-color: $blue;
+            color: #ffffff;
         }
     }
 }
