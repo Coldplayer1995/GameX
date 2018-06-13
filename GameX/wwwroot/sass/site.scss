@@ -200,11 +200,12 @@ body{
 
 
 .login {
-    justify-content: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 2rem;
     border: 1px solid $border_color;
     border-radius: $radius;
+    max-width:450px;
+    justify-content: center;
 
     .login__block {
         display: flex;
@@ -214,8 +215,6 @@ body{
         align-items: center;
 
         .login__block__entry {
-            justify-content: center;
-            color: $gray;
             padding: 5px 5%;
             border: 1px solid $gray;
             font-size: 105%;
@@ -226,6 +225,40 @@ body{
             &:focus {
                 outline: none;
                 border: 1px solid $blue;
+            }
+        }
+
+        .login__block__link {
+            text-decoration: none;
+            padding-right:30px;
+
+            &:hover {
+                color: $gray;
+            }
+        }
+
+        .login__block__button {
+            float: right;
+            width: 11ex;
+            height: 5ex;
+            -moz-border-radius: $radius;
+            -webkit-border-radius: $radius;
+            border-radius: $radius;
+            background-color: $blue;
+            border: 1px solid $blue;
+            font-size: small;
+            color: #fff;
+            font-weight: bold;
+
+            &:hover {
+                background-color: #fff;
+                border: 1px solid #55b1df;
+                color: #55b1df;
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
             }
         }
     }
