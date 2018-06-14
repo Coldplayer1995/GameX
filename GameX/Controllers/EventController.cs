@@ -39,6 +39,35 @@ namespace GameX.Controllers
             this.EventManager.Add(Event);
             return View();
         }
+        
+        public IActionResult Edit(int EventId)
+        {
+            
+            Events Event = context.Events.Include(x => x.EventAdress).FirstOrDefault(x => x.EventId == EventId);
+            EventInputModel model = new EventInputModel()
+            {
+                Name = Event.Name,
+                City = Event.EventAdress.City,
+                Street = Event.EventAdress.Street,
+                Date = Event.Date,
+                HouseNumber = Event.EventAdress.HouseNumber,
+                PostCode = Event.EventAdress.PostCode,
+                EventId = Event.EventId,
+                EventAdressId = Event.EventAdressId
+            };
+
+            //this.EventManager.Add(Event);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EventInputModel Event)
+        {
+            this.EventManager.Edit(Event);
+            return RedirectToAction("Index");
+            
+        }
+
         [HttpPost]
         public IActionResult Remove(int EventID)
         {

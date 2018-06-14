@@ -1,0 +1,41 @@
+﻿@model GameX.ViewModel.EventInputModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form asp-controller="Event" asp-action="Edit" method="post">
+    <input name="EventId" value="@Model.EventId" type="hidden">
+    <input name="EventAdressId" value="@Model.EventAdressId" type="hidden">
+    <div class="addEvent">
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Nazwa</label>
+            <input type="text" name="Name" class="input__block__entry" value="@Model.Name" placeholder="Nowy event">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Data</label>
+            <input type="date" name="Date" class="input__block__entry" value="@Model.Date.ToString("yyyy-MM-dd")" placeholder="19.06.2018">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Miasto</label>
+            <input type="text" name="City" class="input__block__entry" value="@Model.City" placeholder="Kielce">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Ulica</label>
+            <input type="text" name="Street" class="input__block__entry" value="@Model.Street" placeholder="Aleja IX">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Numer</label>
+            <input type="text" name="HouseNumber" class="input__block__entry" value="@Model.HouseNumber" placeholder="15">
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Kod pocztowy</label>
+            <input type="text" name="PostCode" class="input__block__entry" value="@Model.PostCode" placeholder="16-205">
+        </div>
+
+        <div class="addEvent__block">
+            <button type="submit" class="addEvent__block__button">Edytuj!</button>
+
+        </div>
+
+    </div>
+</form>
