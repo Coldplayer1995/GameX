@@ -12,7 +12,7 @@ namespace GameX.Infrastructure
     {
         void Add(EventInputModel Event);
 
-        void Edit();
+        void Edit(EventInputModel Event);
 
 
         void Delete(int EventID);

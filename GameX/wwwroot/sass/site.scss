@@ -177,18 +177,36 @@ body{
     margin: 0 0 3em 0;
     padding: 0;
 }
-
-.table-cell {
-    box-sizing: border-box;
-    flex-grow: 1;
+.table__row {
+    display: flex;
     width: 100%;
-    padding: 0.8em 1.2em;
-    overflow: hidden;
-    list-style: none;
-    border: solid 3px white;
-    background: rgba(112, 128, 144, 0.2);
-    display: block;
-    width: 25%;
+
+    &:hover {
+        background: rgba(112, 128, 144, 0.6);
+
+        .far {
+            display: block !important;
+        }
+    }
+
+    .table-cell {
+        box-sizing: border-box;
+        display: flex !important;
+        justify-content: space-between;
+        flex-grow: 1;
+        width: 100%;
+        padding: 0.8em 1.2em;
+        overflow: hidden;
+        list-style: none;
+        border: solid 3px white;
+        background: rgba(112, 128, 144, 0.2);
+        display: block;
+        width: 25%;
+
+        .far {
+            display: none;
+        }
+    }
 }
 
 .table-cell--head {

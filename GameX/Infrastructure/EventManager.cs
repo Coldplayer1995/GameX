@@ -54,11 +54,41 @@ namespace GameX.Infrastructure
 
         }
 
-        public void Edit()
+        public void Edit(EventInputModel Event)
         {
 
-            throw new NotImplementedException();
+            EventAdress eventAdress = new EventAdress
+            {
+                City = Event.City,
+                HouseNumber = Event.HouseNumber,
+                PostCode = Event.PostCode,
+                Street = Event.Street,
+                EventAdressId = (int)Event.EventAdressId
+
+            };
+            Events EventRecord = new Events
+            {
+                Date = Event.Date,
+                Coords = null,
+                Name = Event.Name,
+                EventId = (int)Event.EventId
+
+            };
+            try
+            {
+                context.EventAdress.Update(eventAdress);
+                context.SaveChanges();
+                EventRecord.EventAdressId = eventAdress.EventAdressId;
+                context.Events.Update(EventRecord);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
+
         public void Delete(int EventID)
         {
             Events Event = context.Events.FirstOrDefault(x => x.EventId == EventID);

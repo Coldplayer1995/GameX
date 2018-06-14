@@ -27,13 +27,16 @@
 
 
 
-
-        <div class="table-cell">@Event.Name</div>
+    <div class="table__row" EventId="@Event.EventId">
+        <div class="table-cell" >
+            @Event.Name
+            <i class="far fa-edit" ></i>
+        </div>
         @*<div style="order:2;" class="table-cell">2</div>*@
         <div class="table-cell">@Event.EventAdress.City</div>
         <div class="table-cell">@Event.EventAdress.Street @Event.EventAdress.HouseNumber</div>
         <div class="table-cell">@Event.Date</div>
-
+    </div>
     }
 
 </div>
@@ -139,6 +142,17 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvz5H2nTtjRyVQl73DUyBVwVBII0wkrtA&callback=initMap"
         async defer></script>
+
+<script type="text/javascript">
+
+    $(".fa-edit").bind("click", function () {
+        let EventId = ($(this).parent().parent().attr("EventId"));
+        window.location.replace(`@Url.Action("Edit")?EventId=${EventId}`);
+    })
+
+
+</script>
+
 
 
 

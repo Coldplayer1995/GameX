@@ -19,5 +19,8 @@ namespace GameX.ViewModel
         public DateTime Date { get; set;}
         public string HouseNumber { get; set; }
         public string PostCode { get; set; } 
+        public int? EventId { get; set; }
+        public int? EventAdressId { get; set; }
     }
+    
 }
