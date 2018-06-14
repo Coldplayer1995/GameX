@@ -19,7 +19,7 @@ namespace GameX.Infrastructure
 
         List<CoordAddress> getEventsAddress();
 
-
+        void SaveCoords(double lat, double lng,int EventAdressId);
 
 
     }

@@ -53,7 +53,14 @@ namespace GameX.Controllers
           
             return Json(new { json} );
         }
+        [HttpPost]
+        public JsonResult saveEventsCoords(double lat,double lng,int  EventAdressId)
+        {
+            this.EventManager.SaveCoords(lat, lng, EventAdressId);
 
-             
+            return Json(new { });
+        }
+
+
     }
 }

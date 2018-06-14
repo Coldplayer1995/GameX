@@ -83,7 +83,8 @@ namespace GameX.Infrastructure
                 {
                     City = adress.City,
                     HouseNumber = adress.HouseNumber,
-                    Street = adress.Street
+                    Street = adress.Street,
+                    EventAdressId = adress.EventAdressId
                 };
                 CoordAddresses.Add(co);
 
@@ -91,6 +92,24 @@ namespace GameX.Infrastructure
             return CoordAddresses;
 
 
+        }
+
+        public void SaveCoords(double lat, double lng, int EventAdressId)
+        {
+            EventAdress EventAddress = context.EventAdress.FirstOrDefault(x => x.EventAdressId == EventAdressId);
+            try
+            {
+                EventAddress.Lat = lat;
+                EventAddress.Lng = lng;
+                context.EventAdress.Update(EventAddress);
+                context.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
