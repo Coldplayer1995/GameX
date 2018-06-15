@@ -21,6 +21,7 @@ namespace GameX.ViewModel
         public string HouseNumber { get; set; }
         public string PostCode { get; set; }
         public string Description { get; set; }
+        public int DiciplineId { get; set; }
         public int? EventId { get; set; }
         public int? EventAdressId { get; set; }
     }

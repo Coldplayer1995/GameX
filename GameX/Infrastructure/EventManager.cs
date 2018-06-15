@@ -35,6 +35,7 @@ namespace GameX.Infrastructure
                 Coords = null,
                 Name = Event.Name,
                 Description = Event.Description,
+                //DisciplineId = Event.DiciplineId,
 
             };
             try
@@ -71,7 +72,9 @@ namespace GameX.Infrastructure
                 Date = Event.Date,
                 Coords = null,
                 Name = Event.Name,
-                EventId = (int)Event.EventId
+                EventId = (int)Event.EventId,
+                //DisciplineId = Event.DiciplineId,
+               
 
             };
             try
