@@ -30,7 +30,10 @@
         <div class="table__row" EventId="@Event.EventId">
             <div class="table-cell">
                 @Event.Name
-                <i class="far fa-edit"></i>
+                <div class="table-cell__icon">
+                    <i class="far fa-trash-alt"></i>
+                    <i class="far fa-edit"></i>
+                </div>
             </div>
             @*<div style="order:2;" class="table-cell">2</div>*@
             <div class="table-cell">@Event.EventAdress.City</div>
@@ -150,8 +153,8 @@
             async defer></script>
     <script type="text/javascript">
 
-    $(".fa-edit").bind("click", function () {
-        let EventId = ($(this).parent().parent().attr("EventId"));
+        $(".fa-edit").bind("click", function () {
+            let EventId = ($(this).parent().parent().parent().attr("EventId"));
         window.location.replace(`@Url.Action("Edit")?EventId=${EventId}`);
     })
 
