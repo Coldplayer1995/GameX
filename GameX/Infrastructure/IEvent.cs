@@ -21,6 +21,11 @@ namespace GameX.Infrastructure
 
         void SaveCoords(double lat, double lng,int EventAdressId);
 
+
+        MarkerContent GetContent(int EventId);
+
+
         List<Disciplines> getDisciplines();
+
     }
 }

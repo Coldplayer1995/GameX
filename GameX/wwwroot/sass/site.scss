@@ -291,12 +291,10 @@ body{
         padding: 20px;
         border-top: 2px solid $blue;
     }
-
     .events__map {
         height: 550px;
         background-color: green;
     }
-
     .events__button {
         background-color: $blue;
         border: 1px solid $blue;
@@ -306,20 +304,22 @@ body{
         padding: 10px;
         width: 200px;
         align-self: center;
-
-        .events__button a {
+        a {
             color: #ffffff;
+        }
+        &:hover {
+            background-color: #fff;
+            border: 1px solid #55b1df;
+            color: #55b1df;
+            cursor: pointer;
+        }
+        &:hover a{
+            color: #55b1df;
+            text-decoration: none;
+        }
 
-            &:hover {
-                background-color: #fff;
-                border: 1px solid #55b1df;
-                color: #55b1df;
-                cursor: pointer;
-            }
-
-            &:focus {
-                outline: none;
-            }
+        &:focus {
+            outline: none;
         }
     }
 }
