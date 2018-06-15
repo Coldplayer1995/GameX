@@ -33,12 +33,12 @@ namespace GameX.Infrastructure
             }
         }
 
-        public void SignUp(SignUpViewModel SignUp)
+        public bool SignUp(SignUpViewModel SignUp)
         {
             
             if (context.Users.Any(x => (x.Username == SignUp.Username) == true))
             {
-                return;
+                return false;
             }
             
             Users User = new Users
@@ -53,12 +53,15 @@ namespace GameX.Infrastructure
             try { 
                 context.Users.Add(User);
                 context.SaveChanges();
+                return true;
             }
 
             catch(Exception ex)
             {
                 throw;
             }
+
+            return false;
         }
 
         public void Delete(int UserId)

@@ -29,11 +29,23 @@ namespace GameX.Controllers
         public IActionResult SignUp(SignUpViewModel SignUp)
         {
 
-            this.UserManager.SignUp(SignUp);
-            return RedirectToAction("SuccesRegister");
+            if (this.UserManager.SignUp(SignUp))
+            {
+                return RedirectToAction("SuccesRegister");
+            }
+            else
+            {
+                return RedirectToAction("UnsuccesRegister");
+            }
+            
         }
 
         public IActionResult SuccesRegister()
+        {
+            return View();
+        }
+
+        public IActionResult UnsuccesRegister()
         {
             return View();
         }
