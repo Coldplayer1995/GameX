@@ -284,24 +284,26 @@ body {
 .address {
   display: none; }
 
-.advantages .advantages__items {
-  display: flex;
-  width: 100%;
-  height: 50px;
-  margin: 20px 0; }
-  .advantages .advantages__items .advantages__items__item {
-    width: 25%;
-    text-align: justify;
-    padding: 20px; }
-    .advantages .advantages__items .advantages__items__item .fas {
-      font-size: 80px;
-      display: flex;
-      justify-content: center;
-      color: #3498db; }
-  .advantages .advantages__items .advantages__items__item h3 {
-    text-align: center;
-    font-weight: bold;
-    padding: 10px; }
+.advantages {
+  height: 800px; }
+  .advantages .advantages__items {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0; }
+    .advantages .advantages__items .advantages__items__item {
+      width: 25%;
+      text-align: justify;
+      padding: 20px; }
+      .advantages .advantages__items .advantages__items__item .fas {
+        font-size: 80px;
+        display: flex;
+        justify-content: center;
+        color: #3498db; }
+    .advantages .advantages__items .advantages__items__item h3 {
+      text-align: center;
+      font-weight: bold;
+      padding: 10px; }
 
 .title {
   text-align: center;

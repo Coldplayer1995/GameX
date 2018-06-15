@@ -19,7 +19,7 @@
 </head>
 <style>
        header{
-           background-image: url();
+           background-image: url(../../wwwroot/images/header-background-mainpage.jpg);
        }
 
 </style>
@@ -27,9 +27,11 @@
 
     <header class="header">
         <nav class="navigation">
-            <div class="navigation__logo"><a asp-area="" asp-controller="MainPage" asp-action="Index">
-                <img src="~/images/gamex_logo.png" />
-            </a></div>
+            <div class="navigation__logo">
+                <a asp-area="" asp-controller="MainPage" asp-action="Index">
+                    <img src="~/images/gamex_logo.png" />
+                </a>
+            </div>
             <div class="navigation__menuItems">
                 <div class="navigation__menuItemes__item">
                     <ul class="navigation__menuItemes__item__mainItem">
@@ -52,15 +54,15 @@
         </nav>
     </header>
     <div class="container body-content">
-        
+
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - GameX</p>
 
-        </footer>
     </div>
+    <footer>
+        <p>&copy; 2018 - GameX</p>
 
+    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
