@@ -25,13 +25,6 @@ namespace GameX.Controllers
             return View();
         }
 
-        public IActionResult SignUp()
-        {
-
-         //   this.UserManager.SignUp(SignUp);
-            return View();
-        }
-
         [HttpPost]
         public IActionResult SignUp(SignUpViewModel SignUp)
         {

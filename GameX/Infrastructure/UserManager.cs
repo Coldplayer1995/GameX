@@ -17,8 +17,11 @@ namespace GameX.Infrastructure
             this.context = context;
         }
 
-        public void Login()
+        public void Login(LoginViewModel User)
         {
+
+            Users user = context.Users.FirstOrDefault(x => x.Username == User.Username);
+
             try
             {
                 
@@ -32,6 +35,12 @@ namespace GameX.Infrastructure
 
         public void SignUp(SignUpViewModel SignUp)
         {
+            
+            if (context.Users.Any(x => (x.Username == SignUp.Username) == true))
+            {
+                return;
+            }
+            
             Users User = new Users
             {
                 Name = SignUp.Name,
