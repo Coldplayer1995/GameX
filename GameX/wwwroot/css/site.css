@@ -235,7 +235,7 @@ body {
   .pictures .pictures__item {
     display: flex;
     width: 25%;
-    height: 250px;
+    height: 300px;
     opacity: 1; }
   .pictures .pictures__item img {
     height: 100%;
@@ -284,19 +284,27 @@ body {
 .address {
   display: none; }
 
-.notes {
+.advantages .advantages__items {
   display: flex;
   width: 100%;
   height: 50px;
   margin: 20px 0; }
-  .notes .notes__item {
-    display: flex;
+  .advantages .advantages__items .advantages__items__item {
     width: 25%;
-    justify-content: center;
-    font-size: 100px; }
-  .notes .notes__item__text {
-    display: flex;
-    width: 25%;
-    justify-content: center;
-    font-size: 13px;
-    margin: 50px 15px; }
+    text-align: justify;
+    padding: 20px; }
+    .advantages .advantages__items .advantages__items__item .fas {
+      font-size: 80px;
+      display: flex;
+      justify-content: center;
+      color: #3498db; }
+  .advantages .advantages__items .advantages__items__item h3 {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px; }
+
+.title {
+  text-align: center;
+  font-weight: 300;
+  padding: 20px;
+  border-top: 2px solid #3498db; }
