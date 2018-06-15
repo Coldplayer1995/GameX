@@ -1,4 +1,5 @@
-﻿using GameX.Models;
+﻿using GameX.HelperClass;
+using GameX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,14 @@ namespace GameX.ViewModel
         public string Name { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
-        public DateTime Date { get; set;}
+        public DateTime Date { get; set; }
         public string HouseNumber { get; set; }
-        public string PostCode { get; set; } 
+        public string PostCode { get; set; }
         public string Description { get; set; }
         public int? EventId { get; set; }
         public int? EventAdressId { get; set; }
     }
-    
+    public class EventAddressModel{
+        public List<CoordAddress> Address { get; set; } 
+    }
 }
