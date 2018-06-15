@@ -32,10 +32,16 @@
             <input type="text" name="PostCode" class="input__block__entry" value="@Model.PostCode" placeholder="16-205">
         </div>
 
+
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Opis</label>
+            <textarea name="Description" class="input__block__entry" placeholder="Opis">@Model.Description</textarea>
+        </div>
+
         <div class="addEvent__block">
             <button type="submit" class="addEvent__block__button">Edytuj!</button>
-
         </div>
+
 
     </div>
 </form>

@@ -34,7 +34,7 @@ namespace GameX.Infrastructure
                 Date = Event.Date,
                 Coords = null,
                 Name = Event.Name,
-
+                Description = Event.Description,
 
             };
             try
