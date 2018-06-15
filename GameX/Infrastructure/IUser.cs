@@ -1,4 +1,5 @@
 ﻿using GameX.Models;
+using GameX.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace GameX.Infrastructure
     {
         void Login();
 
-        void SignUp(Users Event);
+        void SignUp(SignUpViewModel SignUp);
 
         void Delete(int UserId);
     }
