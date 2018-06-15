@@ -32,8 +32,24 @@ namespace GameX.Infrastructure
 
         public void SignUp(SignUpViewModel SignUp)
         {
-            //context.Users.Add(SignUp);
-            context.SaveChanges();
+            Users User = new Users
+            {
+                Name = SignUp.Name,
+                Surname = SignUp.Surname,
+                Email = SignUp.Email,
+                Username = SignUp.Username,
+                Password = SignUp.Password
+            };
+
+            try { 
+                context.Users.Add(User);
+                context.SaveChanges();
+            }
+
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
 
         public void Delete(int UserId)
