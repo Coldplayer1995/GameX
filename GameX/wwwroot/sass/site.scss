@@ -111,6 +111,9 @@ body{
     color: #ffffff;
     height: 70px;
 
+    .navigation__logo img{
+        height: 30px;
+    }
 
     a {
         color: #ffffff;
@@ -310,6 +313,20 @@ body{
         &:hover {
             background-color: $blue;
             color: #ffffff;
+        }
+    }
+}
+
+.pictures {
+    display: flex;
+    width: 100%;
+
+    .pictures__item {
+        display: flex;
+        width: 25%;
+        background: green;
+        &:hover {
+            background: red;
         }
     }
 }
