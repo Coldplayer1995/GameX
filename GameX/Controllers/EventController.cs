@@ -30,7 +30,9 @@ namespace GameX.Controllers
         }
         public IActionResult Add()
         {
-            return View();
+            var model = new EventAddressModel();
+            model.Address = this.EventManager.getEventsAddress();
+            return View(model);
         }
 
         [HttpPost]
@@ -54,7 +56,8 @@ namespace GameX.Controllers
                 PostCode = Event.EventAdress.PostCode,
                 EventId = Event.EventId,
                 EventAdressId = Event.EventAdressId,
-                Description = Event.Description
+                Description = Event.Description,
+                //DiciplineId = Event.DisciplineId,
            
             };
 

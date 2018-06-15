@@ -11,27 +11,15 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180615160327_DisciplineAdd")]
+    partial class DisciplineAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("GameX.Models.Disciplines", b =>
-                {
-                    b.Property<int>("DieciplineId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Discipline")
-                        .IsRequired();
-
-                    b.HasKey("DieciplineId");
-
-                    b.ToTable("Disciplines");
-                });
 
             modelBuilder.Entity("GameX.Models.EventAdress", b =>
                 {

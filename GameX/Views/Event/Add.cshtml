@@ -1,4 +1,4 @@
-﻿
+﻿@model GameX.ViewModel.EventAddressModel
 @{
     ViewData["Title"] = "Add";
 
@@ -16,32 +16,97 @@
             <input type="date" name="Date" class="input__block__entry" placeholder="19.06.2018">
         </div>
         <div class="addEvent__block">
-            <label class="addEvent__block__name" for"">Miasto</label>
-            <input type="text" name="City" class="input__block__entry" placeholder="Kielce">
-        </div>
-        <div class="addEvent__block">
-            <label class="addEvent__block__name" for"">Ulica</label>
-            <input type="text" name="Street" class="input__block__entry" placeholder="Aleja IX">
-        </div>
-        <div class="addEvent__block">
-            <label class="addEvent__block__name" for"">Numer</label>
-            <input type="text" name="HouseNumber" class="input__block__entry" placeholder="15">
-        </div>
-        <div class="addEvent__block">
-            <label class="addEvent__block__name" for"">Kod pocztowy</label>
-            <input type="text" name="PostCode" class="input__block__entry" placeholder="16-205">
+            <label class="addEvent__block__name" for"">Address</label>
+            <select class="input__block__entry selectAddress">
+                <option></option>
+                @foreach (var item in Model.Address)
+                {
+
+                    <option>@item.Street @item.City @item.HouseNumber</option>
+                }
+            </select>
         </div>
 
+
         <div class="addEvent__block">
-            <label class="addEvent__block__name" for"">Opis</label>
-            <textarea name="Description" class="input__block__entry" placeholder="Opis">
+            <label class="addEvent__block__name" for"">Nie znalazles/as adresu?</label>
+            <button class="input__block__entry " id="addNewAddress" type="button">Dodaj!</button>
+            <button class="input__block__entry hide" id="removeNewAddress" type="button">Wroc</button>
+        </div>
+
+        <div class="address hide">
+            <div class="addEvent__block">
+                <label class="addEvent__block__name " for"">Miasto</label>
+                <input type="text" name="City" class="input__block__entry addr" placeholder="Kielce">
+            </div>
+            <div class="addEvent__block">
+                <label class="addEvent__block__name " for"">Ulica</label>
+                <input type="text" name="Street" class="input__block__entry addr" placeholder="Aleja IX">
+            </div>
+            <div class="addEvent__block">
+                <label class="addEvent__block__name " for"">Numer</label>
+                <input type="text" name="HouseNumber" class="input__block__entry addr" placeholder="15">
+            </div>
+            <div class="addEvent__block">
+                <label class="addEvent__block__name " for"">Kod pocztowy</label>
+                <input type="text" name="PostCode" class="input__block__entry addr" placeholder="16-205">
+            </div>
+
+            <div class="addEvent__block">
+                <label class="addEvent__block__name " for"">Opis</label>
+                <textarea name="Description" class="input__block__entry addr" placeholder="Opis">
             </textarea>
+            </div>
         </div>
 
         <div class="addEvent__block">
-            <button type="submit" class="addEvent__block__button">Dodaj!</button>
+            <button type="submit" class="addEvent__block__button">Wyslij!</button>
 
         </div>
-
     </div>
+
 </form>
+@section Scripts{
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script type="text/javascript">
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function () {   
+            $('.selectAddress').select2({
+                placeholder: "Wybierz",
+                allowClear: true
+            });
+           
+        });
+        $("#addNewAddress").bind("click", function () {
+            if ($(".address").hasClass("show")) {
+            
+               
+
+            } else {
+                $("#addNewAddress").addClass("hide");
+                $("#removeNewAddress").removeClass("hide");
+                $(".address").removeClass("hide");
+                $(".address").addClass("show");
+                clearSelect2();
+                $(".selectAddress").attr("disabled", true);
+            }
+         
+            
+        })
+        $("#removeNewAddress").bind("click", function () { 
+            $(".address").removeClass("show");
+            $(".address").addClass("hide");
+            $("#removeNewAddress").addClass("hide");
+            $(".selectAddress").attr("disabled", false);
+            $("#addNewAddress").removeClass("hide");
+            $(".addr").val("");
+        })
+        function clearSelect2() {
+            $(".selectAddress").val(null).trigger('change');
+
+
+        }
+    </script>
+
+}
