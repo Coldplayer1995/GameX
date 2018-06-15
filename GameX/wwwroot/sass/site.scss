@@ -348,3 +348,17 @@ body{
         }
     }
 }
+
+
+.userPage {
+    margin-left: 30px;
+    font-size: 20px;
+
+    .userPage__item {
+        margin-left: 40px;
+        border-radius: $radius;
+        border: 2px solid $blue;
+        padding: 20px;
+
+    }
+}
