@@ -64,7 +64,7 @@ body{
             font-size: 1.2rem;
             border-radius: $radius;
             color: #333;
-
+            margin-top:5%;
 
             &:enabled:hover {
                 background-color: $blue;
@@ -393,5 +393,9 @@ body{
 }
 .container{
     width:100%;
+}
+
+.address{
+    display:none;
 }
 

@@ -20,6 +20,10 @@ namespace GameX.Models
 
         public string Description { get; set; }
 
+        [Required]
+        public int DisciplineId { get; set; }
+        
+
         public int EventAdressId { get; set; }
         public EventAdress EventAdress { get; set; }
 
