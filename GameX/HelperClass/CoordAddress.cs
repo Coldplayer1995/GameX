@@ -11,7 +11,8 @@ namespace GameX.HelperClass
         public string Street { get; set; }
         public string HouseNumber { get; set; }
         public int EventAdressId { get; set; }
-
+        public int EventId { get; set; }
+        public string Content { get; set; }
     }
    
 }

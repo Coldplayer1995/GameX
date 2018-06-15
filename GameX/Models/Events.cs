@@ -5,7 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GameX.Models { 
+
+namespace GameX.Models
+{ 
 
 
     public class Events
@@ -20,8 +22,9 @@ namespace GameX.Models {
 
         public string Description { get; set; }
 
-        [Required]
+        
         public int DisciplineId { get; set; }
+        public Disciplines Discipline { get; set; }
         
 
         public int EventAdressId { get; set; }
