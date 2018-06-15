@@ -54,7 +54,8 @@ namespace GameX.Controllers
                 PostCode = Event.EventAdress.PostCode,
                 EventId = Event.EventId,
                 EventAdressId = Event.EventAdressId,
-                Description = Event.Description
+                Description = Event.Description,
+                //DiciplineId = Event.DisciplineId,
            
             };
 

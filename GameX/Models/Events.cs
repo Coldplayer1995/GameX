@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace GameX.Models
 {
-    enum 
-
     public class Events
     {
         [Key]
@@ -20,6 +18,10 @@ namespace GameX.Models
         public string Coords { get; set; }
 
         public string Description { get; set; }
+
+        [Required]
+        public int DisciplineId { get; set; }
+        
 
         public int EventAdressId { get; set; }
         public EventAdress EventAdress { get; set; }
