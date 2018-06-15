@@ -223,10 +223,17 @@ body {
 
 .pictures {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  height: auto;
+  margin: 50px 0; }
   .pictures .pictures__item {
     display: flex;
     width: 25%;
-    background: green; }
-    .pictures .pictures__item:hover {
-      background: red; }
+    height: 150px;
+    opacity: 1; }
+  .pictures .pictures__item img {
+    height: 100%;
+    width: 100%; }
+    .pictures .pictures__item img:hover {
+      opacity: 0.7;
+      transition: opacity 0.5s ease-in-out; }
