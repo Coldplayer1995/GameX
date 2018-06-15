@@ -177,20 +177,22 @@ namespace GameX.Infrastructure
 
         public MarkerContent GetContent(int EventId)
         {
-            Events Event = context.Events.Include(x => x.EventAdress).Include(x => x.Discipline).FirstOrDefault(x => x.EventId == EventId);
+            Events Event = context.Events.Include(x => x.EventAdress).FirstOrDefault(x => x.EventId == EventId);
+
 
             MarkerContent content = new MarkerContent()
             {
                 Name = Event.Name,
                 Description = Event.Description,
                 Data = Event.Date.ToString(@"MM\/dd\/yyyy HH:mm"),
-                Discipline = Event.Discipline.Name,
+                Discipline = Event.Discipline==null?"" : Event.Discipline.Name,
+
                 Adress = (Event.EventAdress.City + Event.EventAdress.Street + Event.EventAdress.HouseNumber),
             };
 
 
             return content;
-
+        }
         public List<Disciplines> getDisciplines()
         {
             List<Disciplines> disciplines = context.Disciplines.ToList();
