@@ -21,8 +21,8 @@
         </div>
         <div class="addEvent__block">
             <label class="addEvent__block__name" for"">Dyscyplina</label>
-            <select name="SelectedDisciplineID" class="input__block__entry selectDiscipline">
-                <option></option>
+            <select name="DiciplineId" class="input__block__entry selectDiscipline" value="@Model.DiciplineId">
+                <option ></option>
                 @foreach (var item in Model.Disciplines)
                 {
 
@@ -30,6 +30,12 @@
                 }
             </select>
         </div>
+
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Limit</label>
+            <input type="number" name="Limit" class="input__block__entry" value="@Model.Limit" placeholder="10">
+        </div>
+
         <div class="addEvent__block">
             <label class="addEvent__block__name" for"">Address</label>
             <select name="SelectedEventAddressID" class="input__block__entry selectAddress">

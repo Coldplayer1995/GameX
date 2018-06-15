@@ -30,9 +30,7 @@ namespace GameX.Infrastructure
                 eventAdress.HouseNumber = Event.HouseNumber;
                 eventAdress.PostCode = Event.PostCode;
                 eventAdress.Street = Event.Street;
-
             }
-
 
 
             Events EventRecord = new Events
@@ -42,7 +40,7 @@ namespace GameX.Infrastructure
                 Name = Event.Name,
                 Description = Event.Description,
                 DisciplineId = Event.DiciplineId,
-
+                Limit = Event.Limit,
             };
 
             try
@@ -54,8 +52,6 @@ namespace GameX.Infrastructure
                 }
                 else
                 {
-
-
                     context.EventAdress.Add(eventAdress);
                     context.SaveChanges();
                     EventRecord.EventAdressId = eventAdress.EventAdressId;
@@ -93,7 +89,8 @@ namespace GameX.Infrastructure
                 Name = Event.Name,
                 EventId = (int)Event.EventId,
                 DisciplineId = Event.DiciplineId,
-
+                Limit = Event.Limit,
+                Description = Event.Description,
 
             };
             try
