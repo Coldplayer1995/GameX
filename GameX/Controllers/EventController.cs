@@ -95,6 +95,12 @@ namespace GameX.Controllers
             return Json(new { });
         }
 
+        public JsonResult getContent(int EventId)
+        {
+            MarkerContent content = this.EventManager.GetContent(EventId);
+            var json = JsonConvert.SerializeObject(content);
 
+            return Json(new { json });
+        }
     }
 }

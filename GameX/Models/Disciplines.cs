@@ -12,6 +12,6 @@ namespace GameX.Models
         public int DieciplineId { get; set; }
 
         [Required]
-        public string Discipline { get; set; }
+        public string Name { get; set; }
     }
 }
