@@ -53,7 +53,9 @@ namespace GameX.Controllers
                 HouseNumber = Event.EventAdress.HouseNumber,
                 PostCode = Event.EventAdress.PostCode,
                 EventId = Event.EventId,
-                EventAdressId = Event.EventAdressId
+                EventAdressId = Event.EventAdressId,
+                Description = Event.Description
+           
             };
 
             //this.EventManager.Add(Event);

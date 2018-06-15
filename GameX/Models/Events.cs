@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace GameX.Models
 {
+    enum 
+
     public class Events
     {
         [Key]
@@ -16,6 +18,8 @@ namespace GameX.Models
         [Required]
         public DateTime Date { get; set; }
         public string Coords { get; set; }
+
+        public string Description { get; set; }
 
         public int EventAdressId { get; set; }
         public EventAdress EventAdress { get; set; }
