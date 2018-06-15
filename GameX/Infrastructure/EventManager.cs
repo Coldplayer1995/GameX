@@ -20,32 +20,49 @@ namespace GameX.Infrastructure
             this.CoordAddresses = new List<CoordAddress>();
 
         }
+
         public void Add(EventInputModel Event)
         {
-            EventAdress eventAdress = new EventAdress
+            EventAdress eventAdress = new EventAdress();
+            if (Event.EventAdressId == null)
             {
-                City = Event.City,
-                HouseNumber = Event.HouseNumber,
-                PostCode = Event.PostCode,
-                Street = Event.Street,
+                eventAdress.City = Event.City;
+                eventAdress.HouseNumber = Event.HouseNumber;
+                eventAdress.PostCode = Event.PostCode;
+                eventAdress.Street = Event.Street;
 
-            };
+            }
+
+
+
             Events EventRecord = new Events
             {
                 Date = Event.Date,
                 Coords = null,
                 Name = Event.Name,
                 Description = Event.Description,
-                //DisciplineId = Event.DiciplineId,
+                DisciplineId = Event.DiciplineId,
 
             };
+
             try
             {
-                context.EventAdress.Add(eventAdress);
-                context.SaveChanges();
-                EventRecord.EventAdressId = eventAdress.EventAdressId;
+
+                if (Event.EventAdressId != null)
+                {
+                    EventRecord.EventAdressId = (int)Event.EventAdressId;
+                }
+                else
+                {
+
+
+                    context.EventAdress.Add(eventAdress);
+                    context.SaveChanges();
+                    EventRecord.EventAdressId = eventAdress.EventAdressId;
+                }
                 context.Events.Add(EventRecord);
                 context.SaveChanges();
+
             }
             catch (Exception ex)
             {
@@ -58,31 +75,40 @@ namespace GameX.Infrastructure
 
         public void Edit(EventInputModel Event)
         {
-
-            EventAdress eventAdress = new EventAdress
+            EventAdress eventAdress = new EventAdress();
+            if (Event.SelectedEventAddressID == 0)
             {
-                City = Event.City,
-                HouseNumber = Event.HouseNumber,
-                PostCode = Event.PostCode,
-                Street = Event.Street,
-                EventAdressId = (int)Event.EventAdressId
+                eventAdress.City = Event.City;
+                eventAdress.HouseNumber = Event.HouseNumber;
+                eventAdress.PostCode = Event.PostCode;
+                eventAdress.Street = Event.Street;
+                eventAdress.EventAdressId = (int)Event.EventAdressId;
+            }
 
-            };
+
             Events EventRecord = new Events
             {
                 Date = Event.Date,
                 Coords = null,
                 Name = Event.Name,
                 EventId = (int)Event.EventId,
-                //DisciplineId = Event.DiciplineId,
-               
+                DisciplineId = Event.DiciplineId,
+
 
             };
             try
             {
-                context.EventAdress.Update(eventAdress);
+                if (Event.EventAdressId != null) {
+                    EventRecord.EventAdressId = (int)Event.EventAdressId;
+
+                }
+                else
+                {
+                    context.EventAdress.Update(eventAdress);
+                }
+              
                 context.SaveChanges();
-                EventRecord.EventAdressId = eventAdress.EventAdressId;
+               
                 context.Events.Update(EventRecord);
                 context.SaveChanges();
             }
@@ -148,6 +174,7 @@ namespace GameX.Infrastructure
             }
         }
 
+
         public MarkerContent GetContent(int EventId)
         {
             Events Event = context.Events.Include(x => x.EventAdress).Include(x => x.Discipline).FirstOrDefault(x => x.EventId == EventId);
@@ -163,6 +190,12 @@ namespace GameX.Infrastructure
 
 
             return content;
+
+        public List<Disciplines> getDisciplines()
+        {
+            List<Disciplines> disciplines = context.Disciplines.ToList();
+            return disciplines;
+
         }
     }
 }

@@ -16,13 +16,29 @@
             <input type="date" name="Date" class="input__block__entry" placeholder="19.06.2018">
         </div>
         <div class="addEvent__block">
+            <label class="addEvent__block__name " for"">Opis</label>
+            <textarea name="Description" class="input__block__entry " placeholder="Opis">
+            </textarea>
+        </div>
+        <div class="addEvent__block">
+            <label class="addEvent__block__name" for"">Dyscyplina</label>
+            <select name="DiciplineId" class="input__block__entry selectDiscipline">
+                <option></option>
+                @foreach (var item in Model.Disciplines)
+                {
+
+                    <option value="@item.DieciplineId">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="addEvent__block">
             <label class="addEvent__block__name" for"">Address</label>
-            <select class="input__block__entry selectAddress">
+            <select name="EventAdressId" class="input__block__entry selectAddress">
                 <option></option>
                 @foreach (var item in Model.Address)
                 {
 
-                    <option>@item.Street @item.City @item.HouseNumber</option>
+                    <option value="@item.EventAdressId">@item.Street @item.City @item.HouseNumber</option>
                 }
             </select>
         </div>
@@ -52,11 +68,7 @@
                 <input type="text" name="PostCode" class="input__block__entry addr" placeholder="16-205">
             </div>
 
-            <div class="addEvent__block">
-                <label class="addEvent__block__name " for"">Opis</label>
-                <textarea name="Description" class="input__block__entry addr" placeholder="Opis">
-            </textarea>
-            </div>
+
         </div>
 
         <div class="addEvent__block">
@@ -73,6 +85,10 @@
         // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function () {   
             $('.selectAddress').select2({
+                placeholder: "Wybierz",
+                allowClear: true
+            });
+            $('.selectDiscipline').select2({
                 placeholder: "Wybierz",
                 allowClear: true
             });
