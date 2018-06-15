@@ -28,6 +28,7 @@ namespace GameX.ViewModel
         public int SelectedEventAddressID { get; set; }
         public List<CoordAddress> Address { get; set; }
         public List<Disciplines> Disciplines { get; set; }
+        public int Limit { get; set; }
     }
     public class EventAddressModel{
         public List<CoordAddress> Address { get; set; } 

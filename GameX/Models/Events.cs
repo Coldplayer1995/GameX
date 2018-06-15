@@ -30,6 +30,8 @@ namespace GameX.Models
         public int EventAdressId { get; set; }
         public EventAdress EventAdress { get; set; }
 
+        public int Limit { get; set; }
+
 
     }
 }

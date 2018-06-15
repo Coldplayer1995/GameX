@@ -61,8 +61,8 @@ namespace GameX.Controllers
                 Disciplines=context.Disciplines.ToList(),
                 Address=this.EventManager.getEventsAddress(),
                 SelectedDisciplineID = Event.DisciplineId,
-                SelectedEventAddressID=Event.EventAdressId
-           
+                SelectedEventAddressID = Event.EventAdressId,
+                Limit = Event.Limit,       
             };
 
             //this.EventManager.Add(Event);
