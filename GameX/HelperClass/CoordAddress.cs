@@ -13,4 +13,5 @@ namespace GameX.HelperClass
         public int EventAdressId { get; set; }
 
     }
+   
 }
