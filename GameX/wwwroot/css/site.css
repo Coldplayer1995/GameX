@@ -214,15 +214,18 @@ body {
     padding: 10px;
     width: 200px;
     align-self: center; }
-    .events .events__button .events__button a {
+    .events .events__button a {
       color: #ffffff; }
-      .events .events__button .events__button a:hover {
-        background-color: #fff;
-        border: 1px solid #55b1df;
-        color: #55b1df;
-        cursor: pointer; }
-      .events .events__button .events__button a:focus {
-        outline: none; }
+    .events .events__button:hover {
+      background-color: #fff;
+      border: 1px solid #55b1df;
+      color: #55b1df;
+      cursor: pointer; }
+    .events .events__button:hover a {
+      color: #55b1df;
+      text-decoration: none; }
+    .events .events__button:focus {
+      outline: none; }
 
 .pictures {
   display: flex;
