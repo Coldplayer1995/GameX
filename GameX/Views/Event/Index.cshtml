@@ -30,10 +30,10 @@
         <div class="table__row" EventId="@Event.EventId">
             <div class="table-cell">
                 @Event.Name
-                <div class="table-cell__icon">
-                    <i class="far fa-trash-alt"></i>
-                    <i class="far fa-edit"></i>
-                </div>
+
+                <i class="far fa-trash-alt"></i>
+                <i class="far fa-edit"></i>
+
             </div>
             @*<div style="order:2;" class="table-cell">2</div>*@
             <div class="table-cell">@Event.EventAdress.City</div>
@@ -124,6 +124,13 @@
                 var marker = new google.maps.Marker({
                     map: map,
                     position: results[0].geometry.location
+
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker)
                 });
                 saveEventsCoords(results, EventAdressId);
             } else {
@@ -153,8 +160,8 @@
             async defer></script>
     <script type="text/javascript">
 
-        $(".fa-edit").bind("click", function () {
-            let EventId = ($(this).parent().parent().parent().attr("EventId"));
+    $(".fa-edit").bind("click", function () {
+        let EventId = ($(this).parent().parent().attr("EventId"));
         window.location.replace(`@Url.Action("Edit")?EventId=${EventId}`);
     })
 
