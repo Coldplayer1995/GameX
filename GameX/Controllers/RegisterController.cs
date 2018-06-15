@@ -24,12 +24,17 @@ namespace GameX.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult SignUp(SignUpViewModel SignUp)
         {
 
             this.UserManager.SignUp(SignUp);
+            return RedirectToAction("SuccesRegister");
+        }
+
+        public IActionResult SuccesRegister()
+        {
             return View();
         }
     }

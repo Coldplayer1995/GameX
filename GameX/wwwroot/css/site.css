@@ -147,35 +147,35 @@ body {
   color: white;
   width: 25%; }
 
-.login {
+.login, .registered {
   background-color: #fff;
   padding: 2rem;
   border: 1px solid #f2f2f2;
   border-radius: 27px;
   max-width: 450px;
   justify-content: center; }
-  .login .login__block {
+  .login .login__block, .login .registered__block, .registered .login__block, .registered .registered__block {
     display: flex;
     padding: 10px;
     position: center;
     justify-content: center;
     align-items: center; }
-    .login .login__block .login__block__entry {
+    .login .login__block .login__block__entry, .login .login__block .registered__block__entry, .login .registered__block .login__block__entry, .login .registered__block .registered__block__entry, .registered .login__block .login__block__entry, .registered .login__block .registered__block__entry, .registered .registered__block .login__block__entry, .registered .registered__block .registered__block__entry {
       padding: 5px 5%;
       border: 1px solid #8a8a8a;
       font-size: 105%;
       letter-spacing: .8px;
       margin-left: 3%;
       border-radius: 27px; }
-      .login .login__block .login__block__entry:focus {
+      .login .login__block .login__block__entry:focus, .login .login__block .registered__block__entry:focus, .login .registered__block .login__block__entry:focus, .login .registered__block .registered__block__entry:focus, .registered .login__block .login__block__entry:focus, .registered .login__block .registered__block__entry:focus, .registered .registered__block .login__block__entry:focus, .registered .registered__block .registered__block__entry:focus {
         outline: none;
         border: 1px solid #3498db; }
-    .login .login__block .login__block__link {
+    .login .login__block .login__block__link, .login .registered__block .login__block__link, .registered .login__block .login__block__link, .registered .registered__block .login__block__link {
       text-decoration: none;
       padding-right: 30px; }
-      .login .login__block .login__block__link:hover {
+      .login .login__block .login__block__link:hover, .login .registered__block .login__block__link:hover, .registered .login__block .login__block__link:hover, .registered .registered__block .login__block__link:hover {
         color: #8a8a8a; }
-    .login .login__block .login__block__button {
+    .login .login__block .login__block__button, .login .login__block .registered__block__button, .login .registered__block .login__block__button, .login .registered__block .registered__block__button, .registered .login__block .login__block__button, .registered .login__block .registered__block__button, .registered .registered__block .login__block__button, .registered .registered__block .registered__block__button {
       float: right;
       width: 11ex;
       height: 5ex;
@@ -187,12 +187,12 @@ body {
       font-size: small;
       color: #fff;
       font-weight: bold; }
-      .login .login__block .login__block__button:hover {
+      .login .login__block .login__block__button:hover, .login .login__block .registered__block__button:hover, .login .registered__block .login__block__button:hover, .login .registered__block .registered__block__button:hover, .registered .login__block .login__block__button:hover, .registered .login__block .registered__block__button:hover, .registered .registered__block .login__block__button:hover, .registered .registered__block .registered__block__button:hover {
         background-color: #fff;
         border: 1px solid #55b1df;
         color: #55b1df;
         cursor: pointer; }
-      .login .login__block .login__block__button:focus {
+      .login .login__block .login__block__button:focus, .login .login__block .registered__block__button:focus, .login .registered__block .login__block__button:focus, .login .registered__block .registered__block__button:focus, .registered .login__block .login__block__button:focus, .registered .login__block .registered__block__button:focus, .registered .registered__block .login__block__button:focus, .registered .registered__block .registered__block__button:focus {
         outline: none; }
 
 .events {

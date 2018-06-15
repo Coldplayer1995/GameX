@@ -217,22 +217,22 @@ body{
 }
 
 
-.login {
+.login, .registered {
     background-color: #fff;
     padding: 2rem;
     border: 1px solid $border_color;
     border-radius: $radius;
-    max-width:450px;
+    max-width: 450px;
     justify-content: center;
 
-    .login__block {
+    .login__block, .registered__block {
         display: flex;
         padding: 10px;
         position: center;
         justify-content: center;
         align-items: center;
 
-        .login__block__entry {
+        .login__block__entry, .registered__block__entry {
             padding: 5px 5%;
             border: 1px solid $gray;
             font-size: 105%;
@@ -248,14 +248,14 @@ body{
 
         .login__block__link {
             text-decoration: none;
-            padding-right:30px;
+            padding-right: 30px;
 
             &:hover {
                 color: $gray;
             }
         }
 
-        .login__block__button {
+        .login__block__button, .registered__block__button {
             float: right;
             width: 11ex;
             height: 5ex;
