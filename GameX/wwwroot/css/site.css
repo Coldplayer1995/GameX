@@ -238,12 +238,3 @@ body {
     .pictures .pictures__item img:hover {
       opacity: 0.7;
       transition: opacity 0.5s ease-in-out; }
-
-.userPage {
-  margin-left: 30px;
-  font-size: 20px; }
-  .userPage .userPage__item {
-    margin-left: 40px;
-    border-radius: 27px;
-    border: 2px solid #3498db;
-    padding: 20px; }

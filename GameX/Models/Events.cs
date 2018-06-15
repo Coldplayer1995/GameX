@@ -6,8 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace GameX.Models
-{
-    enum 
+{ 
 
     public class Events
     {

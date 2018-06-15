@@ -78,5 +78,41 @@ namespace GameX.Infrastructure
                 throw;
             }
         }
+
+        public bool Edit(SignUpViewModel User)
+        {
+            /*if (context.Users.Any(x => (x.UserId == User.UserId) == false))
+            {
+                return false;
+            }*/
+            
+
+            Users Updated = new Users
+            {
+                Name = User.Name,
+                Surname = User.Surname,
+                Email = User.Email,
+                Username = User.Username,
+                Password = User.Password,
+                UserId= User.UserId,
+            };
+
+            try
+            {
+                context.Users.Update(Updated);
+                context.SaveChanges();
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+                throw;
+            }
+        }
+
+
+
+
     }
 }
