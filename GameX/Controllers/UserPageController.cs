@@ -31,10 +31,20 @@ namespace GameX.Controllers
                 Name = User.Name,
                 Password = User.Password,
                 Surname = User.Surname,
-                Username = User.Username
+                Username = User.Username,
+                UserId = User.UserId
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult UserPage(SignUpViewModel SignUp)
+        {
+            UserManager.Edit(SignUp);
+            return RedirectToAction("../MainPage/Index");
+            
+            
         }
     }
 }

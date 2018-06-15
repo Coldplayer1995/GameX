@@ -13,6 +13,7 @@ namespace GameX.Infrastructure
 
         bool SignUp(SignUpViewModel SignUp);
 
+        bool Edit(SignUpViewModel User);
         void Delete(int UserId);
     }
 }
