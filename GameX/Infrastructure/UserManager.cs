@@ -4,12 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameX.DAL;
 using GameX.Models;
+using GameX.ViewModel;
 
 namespace GameX.Infrastructure
 {
     public class UserManager : IUser
     {
         private readonly StoreContext context;
+
+        public UserManager(StoreContext context)
+        {
+            this.context = context;
+        }
 
         public void Login()
         {
@@ -24,9 +30,9 @@ namespace GameX.Infrastructure
             }
         }
 
-        public void SignUp(Users user)
+        public void SignUp(SignUpViewModel SignUp)
         {
-            context.Users.Add(user);
+            //context.Users.Add(SignUp);
             context.SaveChanges();
         }
 
