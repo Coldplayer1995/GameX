@@ -98,7 +98,8 @@ namespace GameX.Infrastructure
             };
             try
             {
-                if (Event.EventAdressId != null) {
+                if (Event.EventAdressId != null)
+                {
                     EventRecord.EventAdressId = (int)Event.EventAdressId;
 
                 }
@@ -106,9 +107,9 @@ namespace GameX.Infrastructure
                 {
                     context.EventAdress.Update(eventAdress);
                 }
-              
+
                 context.SaveChanges();
-               
+
                 context.Events.Update(EventRecord);
                 context.SaveChanges();
             }
@@ -190,12 +191,14 @@ namespace GameX.Infrastructure
 
 
             return content;
-
+        }
         public List<Disciplines> getDisciplines()
         {
             List<Disciplines> disciplines = context.Disciplines.ToList();
             return disciplines;
 
         }
+
     }
 }
+
