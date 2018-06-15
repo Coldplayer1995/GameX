@@ -60,11 +60,10 @@ body {
 
 .header {
   background-image: url("../images/header-background.jpg");
-  background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
   width: 100%;
-  height: 600px; }
+  height: 800px; }
 
 .navigation {
   background-color: rgba(243, 243, 243, 0.3);
@@ -104,13 +103,6 @@ body {
           .navigation .navigation__menuItems .navigation__menuItemes__item .navigation__menuItemes__item__mainItem .navigation__menuItemes__item__mainItem__subMenuItems .navigation__menuItemes__item__subMenu .navigation__menuItemes__item__subMenu_item {
             padding: 10px;
             color: #3498db; }
-
-.header__title {
-  font-family: 'Open Sans';
-  font-size: 48px;
-  text-align: center;
-  margin-top: 150px;
-  color: #ffffff; }
 
 .table {
   position: relative;
@@ -178,7 +170,7 @@ body {
       padding-right: 30px; }
       .login .login__block .login__block__link:hover, .login .registered__block .login__block__link:hover, .registered .login__block .login__block__link:hover, .registered .registered__block .login__block__link:hover {
         color: #8a8a8a; }
-    .login .login__block .login__block__button, .login .login__block .registered__block__button, .login .registered__block .login__block__button, .login .registered__block .registered__block__button, .registered .login__block .login__block__button, .registered .login__block .registered__block__button, .registered .registered__block .login__block__button, .registered .registered__block .registered__block__button {
+    .login .login__block .login__block__button, .login .login__block button, .login .registered__block .login__block__button, .login .registered__block button, .registered .login__block .login__block__button, .registered .login__block button, .registered .registered__block .login__block__button, .registered .registered__block button {
       float: right;
       width: 11ex;
       height: 5ex;
@@ -190,12 +182,12 @@ body {
       font-size: small;
       color: #fff;
       font-weight: bold; }
-      .login .login__block .login__block__button:hover, .login .login__block .registered__block__button:hover, .login .registered__block .login__block__button:hover, .login .registered__block .registered__block__button:hover, .registered .login__block .login__block__button:hover, .registered .login__block .registered__block__button:hover, .registered .registered__block .login__block__button:hover, .registered .registered__block .registered__block__button:hover {
+      .login .login__block .login__block__button:hover, .login .login__block button:hover, .login .registered__block .login__block__button:hover, .login .registered__block button:hover, .registered .login__block .login__block__button:hover, .registered .login__block button:hover, .registered .registered__block .login__block__button:hover, .registered .registered__block button:hover {
         background-color: #fff;
         border: 1px solid #55b1df;
         color: #55b1df;
         cursor: pointer; }
-      .login .login__block .login__block__button:focus, .login .login__block .registered__block__button:focus, .login .registered__block .login__block__button:focus, .login .registered__block .registered__block__button:focus, .registered .login__block .login__block__button:focus, .registered .login__block .registered__block__button:focus, .registered .registered__block .login__block__button:focus, .registered .registered__block .registered__block__button:focus {
+      .login .login__block .login__block__button:focus, .login .login__block button:focus, .login .registered__block .login__block__button:focus, .login .registered__block button:focus, .registered .login__block .login__block__button:focus, .registered .login__block button:focus, .registered .registered__block .login__block__button:focus, .registered .registered__block button:focus {
         outline: none; }
 
 .events {
@@ -206,21 +198,30 @@ body {
   align-content: center; }
   .events .title, .events events_title {
     text-align: center;
-    font-weight: 400;
-    padding: 20px; }
+    font-weight: 300;
+    padding: 20px;
+    border-top: 2px solid #3498db; }
   .events .events__map {
-    height: 350px;
+    height: 550px;
     background-color: green; }
   .events .events__button {
-    border: 2px solid #3498db;
-    background: none;
+    background-color: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 27px;
+    color: #ffffff;
     margin-top: 20px;
     padding: 10px;
-    width: 150px;
+    width: 200px;
     align-self: center; }
-    .events .events__button:hover {
-      background-color: #3498db;
+    .events .events__button .events__button a {
       color: #ffffff; }
+      .events .events__button .events__button a:hover {
+        background-color: #fff;
+        border: 1px solid #55b1df;
+        color: #55b1df;
+        cursor: pointer; }
+      .events .events__button .events__button a:focus {
+        outline: none; }
 
 .pictures {
   display: flex;
@@ -230,7 +231,7 @@ body {
   .pictures .pictures__item {
     display: flex;
     width: 25%;
-    height: 150px;
+    height: 250px;
     opacity: 1; }
   .pictures .pictures__item img {
     height: 100%;
@@ -247,3 +248,31 @@ body {
     border-radius: 27px;
     border: 2px solid #3498db;
     padding: 20px; }
+
+.registered__block__button {
+  margin: 0 auto;
+  display: flex;
+  width: 17ex;
+  height: 6ex;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+  border-radius: 27px;
+  background-color: #3498db;
+  border: 1px solid #3498db;
+  font-size: small;
+  color: #fff;
+  font-weight: bold; }
+  .registered__block__button:hover {
+    background-color: #fff;
+    border: 1px solid #55b1df;
+    color: #55b1df;
+    cursor: pointer; }
+  .registered__block__button:focus {
+    outline: none; }
+
+.form {
+  width: 800px;
+  margin: 0 auto; }
+
+.container {
+  width: 100%; }

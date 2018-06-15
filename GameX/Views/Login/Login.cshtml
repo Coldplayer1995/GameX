@@ -5,12 +5,7 @@
 
 <h2>Login</h2>
 
-<form asp-controller="Login" asp-action="Login" method="post">
-    <div class="login">
-        <div class="login__logo">
-            <!--Add logo-->
-        </div>
-
+<form asp-controller="Login" asp-action="Login" method="post" class="form">
 
 <div class="login">
     <div class="login__logo">
@@ -30,7 +25,10 @@
 
         <!--Add link-->
         <div class="login__block">
-            <a href="#" class="login__block__link"><small>Zapomniałeś hasła?</small></a>
+            <a asp-area="" asp-controller="Register" asp-action="Index">
+                Nie masz konta? Zarejestruj się.
+            </a>
+                
         </div>
         <div class="login__block">
             <a href="#" class="login__block__link"><small>Zapomniałeś hasła?</small></a>
