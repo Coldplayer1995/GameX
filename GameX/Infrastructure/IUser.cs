@@ -9,7 +9,7 @@ namespace GameX.Infrastructure
 {
     public interface IUser
     {
-        void Login();
+        void Login(LoginViewModel User);
 
         void SignUp(SignUpViewModel SignUp);
 
