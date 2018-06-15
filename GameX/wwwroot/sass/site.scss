@@ -207,8 +207,15 @@ body{
         display: block;
         width: 25%;
 
-        .far {
-            display: none;
+
+
+        table-cell__icon {
+            display: flex;
+
+            .far {
+                display: none;
+                
+            }
         }
     }
 }
