@@ -32,6 +32,7 @@ namespace GameX.Controllers
         {
             var model = new EventAddressModel();
             model.Address = this.EventManager.getEventsAddress();
+            model.Disciplines = this.EventManager.getDisciplines();
             return View(model);
         }
 
@@ -39,7 +40,7 @@ namespace GameX.Controllers
         public IActionResult Add(EventInputModel Event)
         {
             this.EventManager.Add(Event);
-            return View();
+            return RedirectToAction("Index");
         }
         
         public IActionResult Edit(int EventId)
@@ -57,7 +58,10 @@ namespace GameX.Controllers
                 EventId = Event.EventId,
                 EventAdressId = Event.EventAdressId,
                 Description = Event.Description,
-                //DiciplineId = Event.DisciplineId,
+                Disciplines=context.Disciplines.ToList(),
+                Address=this.EventManager.getEventsAddress(),
+                SelectedDisciplineID = Event.DisciplineId,
+                SelectedEventAddressID=Event.EventAdressId
            
             };
 
@@ -94,6 +98,8 @@ namespace GameX.Controllers
 
             return Json(new { });
         }
+
+
 
 
     }
