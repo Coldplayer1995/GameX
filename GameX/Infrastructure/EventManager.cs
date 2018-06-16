@@ -183,8 +183,8 @@ namespace GameX.Infrastructure
                 Name = Event.Name,
                 Description = Event.Description,
                 Data = Event.Date.ToString(@"MM\/dd\/yyyy HH:mm"),
-                Discipline = Event.Discipline==null?"" : Event.Discipline.Name,
-
+                //Discipline = Event.Discipline.Name,
+                Discipline = Event.Discipline==null ? "" : Event.Discipline.Name,
                 Adress = (Event.EventAdress.City + Event.EventAdress.Street + Event.EventAdress.HouseNumber),
             };
 
