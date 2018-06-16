@@ -589,18 +589,21 @@ body{
 
     }
 }
-}
+
 .bodyContent {
-    .Description{
-
+    .Description {
+        color: aqua;
     }
-    .Data{
 
+    .Data {
+        font-size: 36px;
     }
-    .Participants{
 
+    .Participants {
+        font-size: 30px;
     }
-    .Limit{
+}
 
-    }
+.Limit {
+    font-size: 30px;
 }
