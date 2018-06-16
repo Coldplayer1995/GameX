@@ -59,8 +59,11 @@ body {
         border-color: #bdc3c7;
         color: #6a6a6a; }
 
+.header-min {
+  background-image: url("../images/header-background.jpg") !important; }
+
 .header {
-  background-image: url("../images/header-background.jpg");
+  background-image: url("../images/header-background-mainpage1.jpg");
   background-position-y: center;
   background-position-x: center;
   width: 100%;
@@ -312,4 +315,9 @@ body {
   border-top: 2px solid #3498db; }
 
 .playBtn {
-  font-size: 26px; }
+  font-size: 18px; }
+
+.footer {
+  position: fixed;
+  width: 100%;
+  background-color: mediumvioletred; }
