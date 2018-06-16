@@ -26,6 +26,7 @@ namespace GameX.Models
         [Required]
         public string Password { get; set; }
 
-
+        
+        public string Key { get; set; }
     }
 }
