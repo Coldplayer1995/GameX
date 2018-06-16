@@ -11,9 +11,10 @@ using System;
 namespace GameX.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180616090306_identitykey")]
+    partial class identitykey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,11 +119,13 @@ namespace GameX.Migrations
 
                     b.Property<string>("UserID");
 
+                    b.Property<string>("UsersId");
+
                     b.HasKey("EventParticipantsID");
 
                     b.HasIndex("EventID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UsersId");
 
                     b.ToTable("EventParticipants");
                 });
@@ -300,7 +303,7 @@ namespace GameX.Migrations
 
                     b.HasOne("GameX.Models.ApplicationUser", "Users")
                         .WithMany()
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UsersId");
                 });
 
             modelBuilder.Entity("GameX.Models.Events", b =>

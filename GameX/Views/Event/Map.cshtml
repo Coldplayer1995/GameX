@@ -1,152 +1,21 @@
-﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
-@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> UserManager
+﻿<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    .sportmap {
+        height: 400px;
+        width: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    /*html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;*/
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - GameX</title>
+</style>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/webfonts/fontawesome.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-</head>
-
-<body>
-
-    <header class="header">
-        <nav class="navigation">
-            <div class="navigation__logo">
-                <a asp-area="" asp-controller="MainPage" asp-action="Index">
-                    <img src="~/images/gamex_logo.png" />
-                </a>
-            </div>
-            <div class="navigation__menuItems">
-                <div class="navigation__menuItemes__item">
-                    <ul class="navigation__menuItemes__item__mainItem">
-                        <li class="navigation__menuItemes__item__mainItem__subMenuItems">
-                            <a asp-area="" asp-controller="Event" asp-action="Index">Wydarzenia</a>
-
-                            <ol class="navigation__menuItemes__item__subMenu">
-                                <li class="navigation__menuItemes__item__subMenu_item"><a asp-area="" asp-controller="Event" asp-action="Add">Dodaj</a></li>
-                            </ol>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="navigation__menuItemes__item"><a>O nas</a></div>
-                <div class="navigation__menuItemes__item"><a>Czat</a></div>
-                <div class="navigation__menuItemes__item"><a>Kontakt</a></div>
-            </div>
-            <div class="navigation__menuLogin">
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <form asp-area="" asp-controller="Login" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a class="userpage__button" asp-controller="UserPage" asp-action="UserPage" UserId="d4073c9c-117d-462f-a0d9-9e83de6615b0" title="Manage">Witaj @UserManager.GetUserName(User)!</a>
-                            </li>
-                            <li>
-                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Wyloguj się</button>
-                            </li>
-                        </ul>
-                    </form>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="login-button"><a asp-area="" asp-controller="Login" asp-action="Register">Rejestruj</a></li>
-                        <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
-                    </ul>
-                }
-                @*<a asp-area="" asp-controller="Login" asp-action="Login"><i class="fas fa-user"></i></a>*@
-            </div>
-        </nav>
-    </header>
-    <div class="container body-content">
-
-        @RenderBody()
-        <hr />
-
-    </div>
-    <footer class="footerStyle">
-
-        <div class="footerStyle__up">
-
-            <div class="footerStyle__up__note">
-                <h3>O nas</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum rutrum nibh sit amet efficitur. Aliquam erat volutpat. Sed scelerisque orci elit, ut consequat orci semper ut. Fusce ipsum diam, ultrices a egestas nec, auctor euismod elit.</p>
-            </div>
-
-            <div class="footerStyle__up__note">
-                <h3>Kontakt</h3>
-            </div>
-
-            <div class="footerStyle__up__note">
-                <h3>Współpraca</h3>
-            </div>
-
-        </div>
-        <div class="footerStyle__down">
-
-            <div class="footerStyle__down__note">
-                <h4>Znajdź nas na mediach społeczznościowych</h4>
-            </div>
-
-            <div class="footerStyle__down__note">
-                guiigk
-            </div>
-
-        </div>
-
-
-
-
-    </footer>
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
-
-    @*@section Script{
-            <script type="text/javascript">
-                $(".userpage__button").bind("click", function (){
-                    window.location.replace(`@Url.Action("UserPage")?UserId=d4073c9c-117d-462f-a0d9-9e83de6615b0`);
-
-                }
-
-
-            </script>
-
-
-        }*@
+<div id="sportmap" class="sportmap"></div>
+<div id="markerInfo"></div>
+@section Scripts{
     <script type="text/javascript">
         var promise;
         var marker;
@@ -198,7 +67,7 @@
     function getAddress(promise) {
         var json;
 
-         $.ajax("@Url.Action("getEventsAddress", "Event")", {
+         $.ajax("@Url.Action("getEventsAddress")", {
             dataType: "JSON",
             type: "GET",
             contentType: 'application/json'
@@ -255,7 +124,7 @@
         function saveEventsCoords(results, EventAdressId) {
             var lat = results[0].geometry.location.lat();
             var lng = results[0].geometry.location.lng();
-            $.ajax("@Url.Action("saveEventsCoords", "Event")", {
+            $.ajax("@Url.Action("saveEventsCoords")", {
                 type: "POST",
                  dataType: "JSON",
                  data: { lat: lat, lng: lng, EventAdressId: EventAdressId}
@@ -268,7 +137,7 @@
 
         function getContent(content, EventId,fn) {
             var Namex;
-           return $.ajax("@Url.Action("GetContent", "Event")", {
+           return $.ajax("@Url.Action("GetContent")", {
                 type: "GET",
                 dataType: "JSON",
                 data: { EventId: EventId }
@@ -369,13 +238,18 @@
 
         }
     $(".fa-edit").bind("click", function () {
-    let EventId = ($(this).parent().parent().attr("EventId"));
-        window.location.replace(`@Url.Action("Edit")?EventId=${EventId}`);
+        let EventId = ($(this).parent().parent().attr("EventId"));
+        $.ajax("@Url.Action("joinToEvenet")", {
+                type: "POST",
+                 dataType: "JSON",
+            data: { EventId: EventId,}
+
+        }).done(function (data) {
+
+
+         })
     })
 
 
     </script>
-
-    }
-</body>
-</html>
+}

@@ -27,24 +27,24 @@
 
 
 
-    <div class="table__row" EventId="@Event.EventId">
-        <div class="table-cell">
-            @Event.Name
+        <div class="table__row" EventId="@Event.EventId">
+            <div class="table-cell">
+                @Event.Name
 
-            <i class="far fa-trash-alt"></i>
-            <i class="far fa-edit"></i>
+                <i class="far fa-trash-alt"></i>
+                <i class="far fa-edit"></i>
+
+            </div>
+            @*<div style="order:2;" class="table-cell">2</div>*@
+            <div class="table-cell">@Event.EventAdress.City</div>
+            <div class="table-cell">@Event.EventAdress.Street @Event.EventAdress.HouseNumber</div>
+            <div class="table-cell">
+                @Event.Date
+                <div class="playBtn"><i class="far fa-play-circle"></i></div>
+            </div>
+
 
         </div>
-        @*<div style="order:2;" class="table-cell">2</div>*@
-        <div class="table-cell">@Event.EventAdress.City</div>
-        <div class="table-cell">@Event.EventAdress.Street @Event.EventAdress.HouseNumber</div>
-        <div class="table-cell">
-            @Event.Date
-            <div class="playBtn"><i class="far fa-play-circle"></i></div>
-        </div>
-        
-
-    </div>
     }
 
 </div>
@@ -54,6 +54,7 @@
 <div id="markerInfo"></div>
 @section Scripts{
     <script type="text/javascript">
+        var promise;
         var marker;
         var contentStringx = "";
     var contentString = '<div id="content">' +
@@ -94,14 +95,16 @@
         });
         marker.addListener('click', function () {
             infowindow.open(map, marker)
-        });
+         });
+
          getAddress();
         //codeAddress(geocoder, map, "Staszow");
     }
 
-    function getAddress() {
+    function getAddress(promise) {
         var json;
-        $.ajax("@Url.Action("getEventsAddress")", {
+
+         $.ajax("@Url.Action("getEventsAddress")", {
             dataType: "JSON",
             type: "GET",
             contentType: 'application/json'
@@ -123,7 +126,7 @@
 
         function codeAddress(geocoder, map, address, EventAdressId, content, EventId) {
         //var address = document.getElementById('address').value;
-        geocoder.geocode({ 'address': address }, function (results, status) {
+            geocoder.geocode({ 'address': address }, async function (results, status) {
             if (status == 'OK') {
 
                 map.setCenter(results[0].geometry.location);
@@ -132,15 +135,23 @@
                     position: results[0].geometry.location
 
                 });
-                console.log(EventId);
-                getContent(content, EventId);
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentStringx
+                let res;
+                $.when(getContent(content, EventId, function (location) { res=location})).done(function () {
+                    // the code here will be executed when all four ajax requests resolve.
+                    // a1, a2, a3 and a4 are lists of length 3 containing the response text,
+                    // status, and jqXHR object for each of the four ajax calls respectively.
+                    //console.log(res);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: res
+                    });
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker)
+                    });
+                    saveEventsCoords(results, EventAdressId);
+
                 });
-                marker.addListener('click', function () {
-                    infowindow.open(map, marker)
-                });
-                saveEventsCoords(results, EventAdressId);
+
+
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
@@ -160,15 +171,13 @@
 
          })
         };
-        
-        function  getContent(content, EventId) {
+
+        function getContent(content, EventId,fn) {
             var Namex;
-            $.ajax("@Url.Action("GetContent")", {
+           return $.ajax("@Url.Action("GetContent")", {
                 type: "GET",
                 dataType: "JSON",
-                data: { EventId : EventId }
-                
-
+                data: { EventId: EventId }
             }).done(function (data) {
                 var info = JSON.parse(data.json);
                 //for (var i in info) {
@@ -178,47 +187,47 @@
 
                 //}
                 //for (var i in info) {
-                    //var line = info[i];
-                    Namex = `${info.Name}`;
-                    var Description = `${info.Description}`;
-                    let Date = `${info.Data}`;
-                    let Discipline = `${info.Discipline}`;
-                    let Adress = `${info.Adress}`;
-                    console.log("3");
-                    console.log(Namex);
-                    console.log(Description);
-                    console.log(Date);
-                    console.log(Discipline);
-                    //console.log(Adress);
+                //    var line = info[i];
+                //    Namex = `${info.Name}`;
+                //    var Description = `${info.Description}`;
+                //    let Date = `${info.Data}`;
+                //    let Discipline = `${info.Discipline}`;
+                //    let Adress = `${info.Adress}`;
+                //    console.log("3");
+                //    console.log(Namex);
+                //    console.log(Description);
+                //    console.log(Date);
+                //    console.log(Discipline);
+                //console.log(Adress);
+              
+                let { Name, Description, Data, Discipline, Address,
+                    EventParticipents: EventParticipents,
+                    ParticipantsCount,
+                    Limit
+
+
                     
-                
-                contentStringx = '<div id="content">' +
-                '<div id="siteNotice">' +
-                    '</div>' +
-                    '<h1 id="firstHeading" class="firstHeading">' + Namex + '</h1>' +
-                    '<div id="bodyContent">' +
-                    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-                    'sandstone rock formation in the southern part of the ' +
-                    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-                    'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-                    '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-                    'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-                    'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-                    'Aboriginal people of the area. It has many springs, waterholes, ' +
-                    'rock caves and ancient paintings. Uluru is listed as a World ' +
-                    'Heritage Site.</p>' +
-                    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-                    'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-                    '(last visited June 22, 2009).</p>' +
-                    '</div>' +
-                    '</div>';
+                } = info;
+                //console.log(EventParticipents);
+                let Participents ="<br />";
+                let user2 = "Maciej";
+                for (let i in EventParticipents) {
+                    Participents += EventParticipents[i] +"<br />" ;
 
-                setTimeout(function () { }, 1000);
-                })
-           
-            
-            
-
+                }
+               
+                fn(contentString = `<div id="content">
+                <div id="siteNotice">
+                    </div>
+                    <h1 id="firstHeading" class="firstHeading">Nazwa ${Name} </h1>
+                    <div id="bodyContent">
+                    <p>${Description}</p>
+                    <p>Data${Data}</p>
+                    <p>Uczestnicy:${Participents}</p>
+                    <p>Limit:${ParticipantsCount}/${Limit}</p>
+                    </div>
+                    </div>`);
+            })
         }
 
     </script>
@@ -226,9 +235,47 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvz5H2nTtjRyVQl73DUyBVwVBII0wkrtA&callback=initMap"
             async defer></script>
     <script type="text/javascript">
+        $(".fa-play-circle").bind("click", function () {
+            let EventId = ($(this).parent().parent().parent().attr("EventId"));
+            let UserID;
+            $.when(GetCurrentUserID(EventId, function (location) { UserID = location })).done(function () {
+                JoinEvent(UserID,EventId);
 
+            });
+
+
+
+
+        })
+        function GetCurrentUserID(EventID,fn) {
+           return  $.ajax("@Url.Action("GetCurrentUserId","Login")", {
+                 type: "GET",
+                 dataType: "JSON",
+               data: { EventID: EventID}
+
+        }).done(function (data) {
+            fn( data.id);
+
+            
+         })
+
+        }
+        function JoinEvent(userID, EventID) {
+ 
+            
+            $.ajax("@Url.Action("Join")", {
+                type: "POST",
+                 dataType: "JSON",
+                data: { EventID: EventID, userID: userID}
+
+        }).done(function (data) {
+            let userID =data.id;
+
+         })
+
+        }
     $(".fa-edit").bind("click", function () {
-        let EventId = ($(this).parent().parent().attr("EventId"));
+       let EventId = ($(this).parent().parent().attr("EventId"));
         window.location.replace(`@Url.Action("Edit")?EventId=${EventId}`);
     })
 

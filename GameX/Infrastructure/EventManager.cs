@@ -184,8 +184,11 @@ namespace GameX.Infrastructure
                 Description = Event.Description,
                 Data = Event.Date.ToString(@"MM\/dd\/yyyy HH:mm"),
                 //Discipline = Event.Discipline.Name,
-                Discipline = Event.Discipline==null ? "" : Event.Discipline.Name,
+                Discipline = Event.Discipline == null ? "" : Event.Discipline.Name,
                 Adress = (Event.EventAdress.City + Event.EventAdress.Street + Event.EventAdress.HouseNumber),
+                Limit = Event.Limit,
+                ParticipantsCount = context.EventParticipants.Where(x => x.EventID == EventId).Count(),
+                EventParticipents = context.EventParticipants.Include(x => x.Users).Where(x=>x.EventID== EventId).Select(x => x.Users.UserName).ToList()
             };
 
 
