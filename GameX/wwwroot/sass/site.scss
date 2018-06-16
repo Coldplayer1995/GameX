@@ -92,9 +92,11 @@ body{
         }
     }
 }
-
+.header-min{
+    background-image: url('../images/header-background.jpg') !important;
+}
 .header {
-    background-image: url("../images/header-background.jpg");
+    background-image: url('../images/header-background-mainpage1.jpg');
     //background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
@@ -473,3 +475,4 @@ body{
         }
     }
 }
+
