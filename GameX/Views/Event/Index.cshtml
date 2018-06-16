@@ -45,17 +45,6 @@
 
 
         </div>
-        @*<div style="order:2;" class="table-cell">2</div>*@
-        <div class="table-cell">@Event.EventAdress.City</div>
-        <div class="table-cell">@Event.EventAdress.Street @Event.EventAdress.HouseNumber</div>
-        <div class="table-cell">
-            @Event.Date
-            <div class="playBtn"><i class="far fas fa-plus"></i></div>
-        </div>
-        
-
-
-        </div>
     }
 
 </div>
@@ -219,6 +208,7 @@
 
                     
                 } = info;
+                Description.trim();
                 //console.log(EventParticipents);
                 let Participents ="<br />";
                 let user2 = "Maciej";
@@ -231,11 +221,11 @@
                 <div id="siteNotice">
                     </div>
                     <h1 id="firstHeading" class="firstHeading">Nazwa ${Name} </h1>
-                    <div id="bodyContent">
-                    <p>${Description}</p>
-                    <p>Data${Data}</p>
-                    <p>Uczestnicy:${Participents}</p>
-                    <p>Limit:${ParticipantsCount}/${Limit}</p>
+                    <div class="bodyContent">
+                    <p class="Description">${Description}</p>
+                    <p class="Data">Data${Data}</p>
+                    <p class="Participants">Uczestnicy:${Participents}</p>
+                    <p class="Limit">Limit:${ParticipantsCount}/${Limit}</p>
                     </div>
                     </div>`);
             })
