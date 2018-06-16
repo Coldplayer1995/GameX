@@ -486,81 +486,58 @@ body{
         border-top: 2px solid $blue;
     }
 
+.playBtn {
+    font-size: 18px;
+}
 
 .footerStyle {
     width: 100%;
-    height: 250px;
     font-size: 13px;
     color: #C0C0C0;
-    text-align: center;
-
-    /*
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;*/
+    height: auto;
+    background-color: #353535;
 
 
-    .playBtn {
-        font-size: 18px;
-    }
-
-
-    .footerStyle {
+    .footerStyle__up {
+        display: flex;
         width: 100%;
-
         height: auto;
-        background: #545454;
 
         .footerStyle__up__note {
             width: 33%;
-            justify-content: center;
-            margin: 10px 5px;
-        }
-    }
+            padding: 10px;
+            text-align: justify;
 
-    .footerStyle__up h4, i {
-        color: $blue;
-        font-weight: bolder;
-        font-size: 40px;
-    }
-
-
-
-    .footerStyle__down {
-        display: flex;
-        width: 100%;
-        height: 80px;
-        background: #1E2629;
-
-        height: 300px;
-        background: red;
-        font-size: 20px;
-
-        .footerStyle__up {
-            display: flex;
-            width: 100%;
-            height: 200px;
-
-            .footerStyle__up__note {
-                width: 33%;
-                //justify-content: space-between;
+            .far {
+                color: $blue;
+                font-weight: bold;
+                font-size: 40px;
+                display: flex;
                 justify-content: center;
+                text-align: center;
             }
         }
 
-
-        .footerStyle__down {
-            display: flex;
-
-            width: 50%;
-            justify-content: center;
+        .footerStyle__up__note h4 {
             color: $blue;
+            font-family: Open sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+            text-align: center;
         }
+    }
+
+    .footerStyle__down {
+        width: 100%;
+        background: #1E2629;
+        display: flex;
+        justify-content: center;
+        color: $blue;
+
 
         .footerStyle__down__note h4 {
             font-weight: bolder;
+            font-family: Open sans-serif;
         }
 
 
@@ -569,18 +546,15 @@ body{
             max-height: 50px;
             margin: 20px 10px;
 
-            width: 100%;
-            height: 100px;
-            background: blue;
 
             .footerStyle__down__note {
                 display: flex;
                 width: 50%;
                 justify-content: center;
             }
-
         }
     }
+}
 .container__userPage {
     display: flex;
     .avaliableDay{
