@@ -392,8 +392,7 @@ body {
         display: flex;
         width: 50%;
         justify-content: center; }
-
-.container__userPage {
-  display: flex; }
-  .container__userPage .avaliableDay {
-    margin-left: 150px; }
+  .footerStyle .container__userPage {
+    display: flex; }
+    .footerStyle .container__userPage .avaliableDay {
+      margin-left: 150px; }
