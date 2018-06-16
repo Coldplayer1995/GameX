@@ -21,9 +21,9 @@ namespace GameX.Controllers
             this.context = context;
         }
 
-        public IActionResult UserPage(int UserId)
+        public IActionResult UserPage(string UserId)
         {
-            Users User = context.Users.FirstOrDefault(x => x.UserId == UserId);
+            Users User = context.Users.FirstOrDefault(x => x.Key == "d4073c9c-117d-462f-a0d9-9e83de6615b0");
 
             SignUpViewModel model = new SignUpViewModel()
             {
