@@ -269,8 +269,9 @@
                  dataType: "JSON",
                 data: { EventID: EventID, userID: userID}
 
-        }).done(function (data) {
-            let userID =data.id;
+            }).done(function (data) {
+            window.location.replace(`@Url.Action("Index")`);
+            
 
          })
 

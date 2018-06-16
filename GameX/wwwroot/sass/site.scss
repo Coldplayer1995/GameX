@@ -553,30 +553,34 @@ body{
                 justify-content: center;
             }
         }
+    
     }
-
+}
 .container__userPage {
-    display: flex;
-    .avaliableDay{
-        margin-left: 150px;
+        display: flex;
 
-    }
+        .avaliableDay {
+            margin-left: 150px;
+        }
 }
 
 .bodyContent {
+    font-size: 16px;
+    color: #000000;
+
     .Description {
-        color: aqua;
+        font-weight: bold;
     }
 
     .Data {
-        font-size: 36px;
     }
 
     .Participants {
-        font-size: 30px;
+    }
+
+    .Limit {
+        font-weight: bold;
     }
 }
 
-.Limit {
-    font-size: 30px;
-}
+
