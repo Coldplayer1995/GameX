@@ -402,6 +402,7 @@ body{
 
 .advantages {
     height: 800px;
+
     .advantages__items {
         display: flex;
         width: 100%;
@@ -437,6 +438,12 @@ body{
 
 .playBtn {
     
-    font-size: 26px;
+    font-size: 18px;
 
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    background-color: mediumvioletred;
 }
