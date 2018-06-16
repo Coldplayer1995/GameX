@@ -17,9 +17,11 @@ namespace GameX.Controllers
     {
         private readonly StoreContext context;
         private IEvent EventManager { get; set; }
+        private IEventJoinManager EventJoinManager { get; set; }
         public EventController(StoreContext context)
         {
             this.EventManager = new EventManager(context);
+            this.EventJoinManager = new EventJoinManager(context);
             this.context = context;
         }
         public IActionResult Index()
@@ -42,10 +44,10 @@ namespace GameX.Controllers
             this.EventManager.Add(Event);
             return RedirectToAction("Index");
         }
-        
+
         public IActionResult Edit(int EventId)
         {
-            
+
             Events Event = context.Events.Include(x => x.EventAdress).FirstOrDefault(x => x.EventId == EventId);
             EventInputModel model = new EventInputModel()
             {
@@ -58,17 +60,20 @@ namespace GameX.Controllers
                 EventId = Event.EventId,
                 EventAdressId = Event.EventAdressId,
                 Description = Event.Description,
-                Disciplines=context.Disciplines.ToList(),
-                Address=this.EventManager.getEventsAddress(),
+                Disciplines = context.Disciplines.ToList(),
+                Address = this.EventManager.getEventsAddress(),
                 SelectedDisciplineID = Event.DisciplineId,
                 SelectedEventAddressID = Event.EventAdressId,
-                Limit = Event.Limit,       
+                Limit = Event.Limit,
             };
 
             //this.EventManager.Add(Event);
             return View(model);
         }
-
+        public IActionResult Map()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult Edit(EventInputModel Event)
         {
@@ -103,11 +108,17 @@ namespace GameX.Controllers
         {
             MarkerContent content = this.EventManager.GetContent(EventId);
             var json = JsonConvert.SerializeObject(content);
-
+            
 
             return Json(new { json });
         }
+        public JsonResult Join(int EventID,string userID)
+        {
+            this.EventJoinManager.Join(EventID, userID);
 
+
+            return Json(new { });
+        }
 
     }
 }
