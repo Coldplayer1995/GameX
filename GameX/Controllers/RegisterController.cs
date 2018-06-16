@@ -12,11 +12,11 @@ namespace GameX.Controllers
     public class RegisterController : Controller
     {
         private readonly StoreContext context;
-        private IUser UserManager { get; set; }
+        //private IUser UserManager { get; set; }
 
         public RegisterController(StoreContext context)
         {
-            this.UserManager = new UserManager(context);
+            //this.UserManager = new UserManager(context);
             this.context = context;
         }
 
@@ -25,20 +25,20 @@ namespace GameX.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult SignUp(SignUpViewModel SignUp)
-        {
+        //[HttpPost]
+        //public IActionResult SignUp(SignUpViewModel SignUp)
+        //{
 
-            if (this.UserManager.SignUp(SignUp))
-            {
-                return RedirectToAction("SuccesRegister");
-            }
-            else
-            {
-                return RedirectToAction("UnsuccesRegister");
-            }
+        //    if (this.UserManager.SignUp(SignUp))
+        //    {
+        //        return RedirectToAction("SuccesRegister");
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("UnsuccesRegister");
+        //    }
             
-        }
+        //}
 
         public IActionResult SuccesRegister()
         {
