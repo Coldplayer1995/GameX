@@ -17,7 +17,7 @@ namespace GameX.Controllers
 
         public UserPageController(StoreContext context)
         {
-            this.UserManager = new UserManager(context);
+            //this.UserManager = new UserManager(context);
             this.context = context;
         }
 
